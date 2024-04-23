@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagination</title>
+    <style>
+
+        * {
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+
+        }
+
+        html {
+            font-family: "Inter", sans-serif;
+            display: flex;
+            position: relative;
+
+        }
+
+
+        .pagination {
+
+            display: inline-block;
+            padding: 10rem;
+        }
+
+        .pagination > a {
+
+            text-decoration: none;
+            margin: 0.2rem;
+            color: black;
+
+        }
+        .pagination > a.active{
+
+            background-color: black;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+
+        }
+
+        .pagination > a:hover:not(.active){
+
+            background-color: #a1a1a1;
+            padding: 0.5rem;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="pagination">
+    <a href="">&laquo;</a>
+    <a href="">1</a>
+    <a href="" class="active">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <a href="">5</a>
+    <a href="">&raquo;</a>
+
+
+</div>
+
+</body>
+</html>

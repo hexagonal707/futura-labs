@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Transform</title>
+
+    <style>
+
+        * {
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+
+        }
+
+        html {
+            font-family: "Inter", sans-serif;
+            display: flex;
+            position: relative;
+
+        }
+
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            height: 10rem;
+            width: 10rem;
+            margin: 1rem;
+            background-color: lightgreen;
+            transform: translate(1rem, 1rem);
+
+        }
+
+        .box-2 {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            transform: translate(1rem, 1rem) rotate(30deg);
+            height: 10rem;
+            width: 10rem;
+            margin: 2rem;
+            background-color: lightcoral;
+        }
+
+        .box-2:hover {
+
+            transform: translate(0, 1rem) rotate(0deg);
+            transition: ease-in-out;
+            transition-duration: 700ms;
+
+        }
+
+        .box-3 {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            transform: translate(1rem, 1rem);
+            height: 10rem;
+            width: 10rem;
+            margin: 0 1rem;
+            background-color: lightsalmon;
+
+        }
+
+
+        .box-3:hover {
+
+            width: 6rem;
+            height: 6rem;
+            transition: ease-in-out;
+            transition-duration: 700ms;
+            transition-delay: 1s;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="box">Something</div>
+
+<div class="box-2">Nothing</div>
+
+<div class="box-3">Whatever</div>
+
+
+</body>
+</html>

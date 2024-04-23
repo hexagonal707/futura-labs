@@ -1,0 +1,27 @@
+* {
+
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter",sans-serif;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+
+    border-radius: 0.369rem;
+    margin: 0.5rem;
+    border: none;
+    box-shadow: 0 0.2rem 2rem 0 #00000066;
+    font-weight: bold;
+    padding: 1rem;
+
+}
+

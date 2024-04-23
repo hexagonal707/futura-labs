@@ -1,0 +1,39 @@
+
+body {
+    background-color: bisque;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.food-list-container {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: lighter;
+    font-size: x-small;
+}
+
+
+.image-container {
+    max-width: 15rem;
+    margin: 2rem 2.5rem 1rem 2.5rem;
+    padding: 1.369rem;
+    background-color: aliceblue;
+    border-radius: 2rem;
+    border: #491515 solid 0.2rem;
+    box-shadow: 0 0 1rem 0 #00000066;
+}
+
+.btn-remove {
+    background: aqua;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: large;
+}

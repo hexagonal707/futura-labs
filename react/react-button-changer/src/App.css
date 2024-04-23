@@ -1,0 +1,35 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+
+}
+
+
+body {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    background: #181818;
+}
+
+
+.col-chg-btn {
+    padding: 1rem;
+    
+    font-size: 1rem;
+    font-weight: bold;
+    color: #003400;
+
+
+}
+
+.col-chg-btn:hover {
+    border: 0.12rem inset #D2D2D2E0;
+    box-shadow: 0 0 1rem 0 rgba(190, 190, 190, 0.4);
+
+}

@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Futura Labs</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: "Inter", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            justify-content: space-between;
+        }
+
+        nav ul {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            padding: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        nav ul li a:hover {
+            color: #fcb045;
+        }
+
+        .internship-dropdown {
+            color: black;
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            position: absolute;
+            justify-content: center;
+            background-color: white;
+            height: 20rem;
+            width: 30rem;
+            padding: 1rem;
+            z-index: 1;
+            font-size: 0.7rem;
+            border-radius: 1rem;
+            transform: translate(-13rem, 1.5rem);
+            box-shadow: 0 0.2rem 0.5rem 0 #00000066;
+        }
+
+        .internship:hover .internship-dropdown {
+            display: grid;
+        }
+
+        .internship-dropdown > div {
+            display: flex;
+            align-items: center;
+        }
+
+        .internship-dropdown-item {
+            background-color: #75e0f544;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1rem;
+            border-radius: 0.2rem;
+        }
+
+        .gradient-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            border: 0;
+            height: 4rem;
+            width: 15rem;
+            margin: 0 0.5rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.2rem 0.5rem 0 #00000066;
+            background-image: linear-gradient(-90deg, #e85312 30%, orange 80%);
+        }
+
+        .gradient-btn:hover {
+            background-image: none;
+            background-color: #e85312;
+        }
+
+        .section-1-grid {
+            display: grid;
+            padding: 10rem 0;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            background-color: #380586;
+        }
+
+        .section-1-grid > h1 {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .section-1-grid > p {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 10rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .section-1-grid > .contact-btn-group {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            background-color: #380586;
+        }
+
+        .section-2-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            grid-gap: 2rem;
+            padding: 2rem 15rem;
+            text-align: justify;
+            align-items: center;
+            font-size: larger;
+        }
+
+        .section-2-grid div img {
+            height: auto;
+            width: 80%;
+            padding-top: 2rem;
+        }
+
+        .about-section-second-para {
+            grid-column: 1/3;
+            grid-row: 2/2;
+        }
+
+        .form-details-gridbox {
+            margin: 2rem 0;
+            padding-bottom: 2rem;
+            background-color: #d2e4fd;
+        }
+
+        .form-details-gridbox h2 {
+            padding-left: 15rem;
+            padding-top: 4rem;
+        }
+
+        .form-flexbox {
+            display: flex;
+            justify-content: center;
+            text-align: end;
+            margin: 1rem 4rem;
+        }
+
+        .input-group-flexbox {
+            display: flex;
+            flex-flow: column;
+            justify-content: right;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .input-group-flexbox label b {
+            position: absolute;
+            transform: translate(1rem, 1rem);
+            z-index: 1;
+            color: #3b3b3b;
+        }
+
+        .input-group-flexbox input {
+            position: relative;
+            border: none;
+            height: 3rem;
+            width: 15rem;
+            border-radius: 0.6rem;
+            background-color: #efefef;
+            box-shadow: 0 0 8rem 0 #00000066;
+            padding: 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        .input-group-flexbox input:hover {
+            background-color: #dedede;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            grid-auto-rows: 2rem;
+            padding: 5% 5% 0 5%;
+            text-align: center;
+            justify-items: center;
+        }
+
+        .footer-gradient-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            border: 0;
+            height: 4rem;
+            width: 50rem;
+            margin: 3rem 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.2rem 0.5rem 0 #00000066;
+            background-image: linear-gradient(-90deg, #e85312 30%, orange 80%);
+        }
+
+        .footer-gradient-button:hover {
+            background-image: none;
+            background-color: #e85312;
+        }
+
+        .footer-social-flexbox {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .footer-social-icons {
+            height: 2rem;
+            width: 2rem;
+            background-color: #6df1da;
+            border-radius: 0.4rem;
+        }
+
+        .footer-contact-flexbox {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-contact-flexbox > .footer-grid-item-1 {
+            margin: 0 2rem;
+        }
+
+        .footer-contact-flexbox > .footer-grid-item-2 {
+            margin: 0 2rem;
+        }
+
+        .footer-contact-flexbox > .footer-grid-item-3 {
+            margin: 0 2rem;
+        }
+
+        .footer-quick-links {
+            margin: 2rem;
+        }
+
+        .footer-quick-links > div > a {
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <img alt="" src="../img/futura-logo.svg"/>
+    <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../public/about.html">About</a></li>
+        <li class="internship">
+            <a href="#">Internship &blacktriangledown;</a>
+            <div class="internship-dropdown">
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+                <div>
+                    <div class="internship-dropdown-item"></div>
+                    Python - Django<br/>
+                    Fullstack
+                </div>
+            </div>
+        </li>
+        <li><a href="#">Placements</a></li>
+        <li><a href="../public/career.html">Careers</a></li>
+        <li><a href="../public/contact.html">Contact</a></li>
+        <li>
+            <button class="gradient-btn">Get in touch &nbsp; &RightArrow;</button>
+        </li>
+    </ul>
+</nav>
+
+<div class="section-1-grid">
+    <h1>About Us</h1>
+    <p>
+        Futura Labs is an IT training institute located in Kozhikode city,
+        offering skill development services to enhance and upgrade one’s skills
+        <br/>
+        with contemporary career trends. We have been a member of Cafit- Calicut
+        Forum for IT since its inception in 2016.
+    </p>
+
+    <div class="contact-btn-group">
+        <div class="gradient-btn">Get in touch &nbsp; &DownArrow;</div>
+        <div class="gradient-btn">Call: 7994420046 &nbsp; &DownArrow;</div>
+    </div>
+</div>
+
+<div class="section-2-grid">
+    <div><img alt="" src="../img/about-colab.png"/></div>
+
+    <div>
+        <p>
+            Do you know that more than half of the highest-paying jobs for a fresh
+            college graduate today are in the IT industry? We live in the digital
+            era and have a knack for things on the screen. With just a touch, the
+            magical world of mobile applications, UI/UX Designs, React, and
+            Flutter is all open for us and enchants us. Getting formal training in
+            these courses will help one pursue a career in their passion. The
+            students have exposure to real-life situations, which allows them to
+            beat the Monday blues.
+        </p>
+
+        <br/><br/>
+
+        <p>
+            If you are looking for a promising IT career, you will have to find a
+            great mentor like Futura Lab.
+        </p>
+
+        <br/><br/>
+        <p>
+            The Futura lab is a leading training and career development company,
+            instituted in 2016 by some of the best IT experts who had closely
+            witnessed the hiring process. Hence, they know how to bridge the gap
+            between budding talent and Industry expectations.
+        </p>
+    </div>
+
+    <div class="about-section-second-para">
+        <p>
+            Our training and teaching pedagogy distinguish Futura labs from other
+            Software Training Institutes that help you to explore and excel in new
+            skills to make you more competent and industry ready. All courses have
+            been designed by IT industry experts. Designed not only to provide
+            in-depth knowledge but also hand on experience, which will help you to
+            master the concept.
+        </p>
+        <br/><br/>
+
+        <p>
+            We, at Futura Labs, have observed that students coming out of college
+            have no idea about the operations of the IT industry. To combat this
+            vulnerability and make the freshers better understand the working
+            environment of an IT company, Futura labs have simulated the
+            Atmosphere where students receive employee-like treatment. This
+            training helps them manage their work according to the standard
+            criteria and discipline.
+        </p>
+
+        <br/><br/>
+        <p>
+            The trainees also learn how to be punctual and how to respect
+            deadlines. Above all, it teaches them how they must behave with their
+            colleagues.
+        </p>
+
+        <br><br>
+        <dd>Key Highlights of the Course</dd>
+
+      <p>
+
+        <ul>
+
+            <li>Hands-on Practical session for better learning</li>
+            <li>Perfect for candidates having a 05-10 years career gap</li>
+            <li>Proper Placement guidance and assistance</li>
+            <li>In-depth training on the latest programming languages and other software tools.</li>
+            <li>Expertise training in Python.</li>
+            <li>Virtual office Environment for better insight into an IT industry working.</li>
+            <li>We have placed more than 100 students in some top MNC companies.</li>
+
+        </ul>
+        <br><br>
+        Futura Labs is your one-point connection from campus to corporate. Join us today for your bright future.
+        </p>
+    </div>
+</div>
+
+<div class="form-details-gridbox">
+    <h2>Drop a line to us & we will be in touch soon.</h2>
+
+    <form class="form-flexbox">
+        <div class="input-group-flexbox">
+            <label> <b>Your Name</b><input type="text"/> </label>
+
+            <label> <b>Contact No:</b><input type="text"/> </label>
+
+            <label> <b>Message</b><input type="text"/> </label>
+        </div>
+
+        <div class="input-group-flexbox">
+            <label> <b>Email</b><input type="text"/> </label>
+
+            <label> <b>Subject</b><input type="text"/> </label>
+        </div>
+
+
+    </form>
+</div>
+
+<footer>
+    <div class="footer-gradient-button">
+        Talk to our career advisor today on 07994420046 or Enquire Now
+        &rightarrow;
+    </div>
+
+    <div>
+        Do you wish to explore, learn and excel a new skill? Is it time to
+        improve your efficiency to be on par with the latest trends? Futura Labs
+        is the exact platform you are looking for.
+    </div>
+
+    <div class="footer-contact-flexbox">
+        <div class="footer-grid-item-1">
+            <div>STAY CONNECTED</div>
+
+            <br/>
+
+            <div class="footer-social-flexbox">
+                <div class="footer-social-icons"></div>
+                <div class="footer-social-icons"></div>
+                <div class="footer-social-icons"></div>
+                <div class="footer-social-icons"></div>
+            </div>
+        </div>
+
+        <div class="footer-grid-item-2">
+            <div>FIND LOCATION AT</div>
+
+            <br/><br/>
+
+            <div>
+                4th Floor, Mualim Arcade, Wayanad Road, Near MC College, Kozhikode -
+                673011
+            </div>
+
+            <br/>
+            <div>
+                Door No: 38/3989, Opposite Metro Pillar No.489, Edappally South,
+                Palarivattom Kochi Pin: 682025
+            </div>
+        </div>
+
+        <div class="footer-grid-item-3">
+            <div>PLEASE CONTACT US ON</div>
+            <br/>
+            <p>
+                <a href="#">7994420046</a>
+                <br/>
+                <a href="#">9778043002</a>
+                <br/>
+                <a href="#">info@thefuturalabs.com</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-quick-links">
+        <div>QUICK LINKS</div>
+        <br/>
+        <div>
+            <a href="">Home</a>
+
+            <a href="">About </a>
+
+            <a href="">Internship</a>
+
+            <a href="">Placements</a>
+
+            <a href="">Careers</a>
+
+            <a href="">Contact</a>
+
+            <a href="">Blog</a>
+
+            <a href="">Sitemap</a>
+        </div>
+    </div>
+    <div class="footer-quick-links">
+        <div>COURSES</div>
+        <br/>
+        <div>
+            <a href="">Python - Django Fullstack</a>
+
+            <a href="">PHP - Laravel Fullstack</a>
+
+            <a href="">Mern Full Stack</a>
+
+            <a href="">Flutter Mobile App</a>
+
+            <a href="">React JS</a>
+
+            <a href="">UI/UX</a>
+
+            <a href="">Front End Development</a>
+
+            <a href="">Data Science</a>
+
+            <a href="">AWS</a>
+
+            <a href="">.NET</a>
+
+            <a href="">Software Testing & Quality Assurance</a>
+
+            <a href="">Digital Marketing Training in Kozhikode</a>
+        </div>
+    </div>
+    <div>© 2024 Powered By <b>Futura Labs</b>. All Rights Reserved</div>
+</footer>
+</body>
+</html>

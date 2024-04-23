@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" style="color: black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        h1 {
+
+            text-align: center;
+        }
+
+        html {
+
+            background: #F5E1A2;
+
+        }
+
+
+        form {
+            display: inline-block;
+        }
+
+        fieldset {
+
+
+            align-content: end;
+
+        }
+
+        .float-right {
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1><b>STUDENT REGISTRATION FORM</b></h1>
+
+<fieldset>
+
+    <legend><b>PERSONAL INFORMATION</b></legend>
+
+    <form>
+        <label>First Name <input class="float-right" type="text"></label>
+
+
+        <br><br>
+        <label>Second Name<input class="float-right" type="text"></label>
+        <br><br>
+        <label>Address &emsp;&emsp;&emsp;&emsp;&emsp;<textarea name="" id="" cols="20" rows="4"></textarea>
+        </label>
+        <br><br>
+        <label>Phone Number <input class="float-right" type="number"></label>
+        <br><br>
+
+        <label>Gender</label>
+        <br>
+
+        <label><input type="radio" name="gender">Male</label>
+        <label><input type="radio" name="gender">Female</label>
+        <label><input type="radio" name="gender">Other</label>
+        <br><br>
+
+        <label>Email<input
+                class="float-right" type="email"></label>
+        <br><br>
+        <label>Skills</label>
+        <label><input type="checkbox">Python</label>
+        <label><input type="checkbox">Java</label>
+        <label><input type="checkbox">PHP</label>
+        <label><input type="checkbox">C#</label>
+
+
+    </form>
+
+
+</fieldset>
+
+<fieldset>
+
+    <legend><b>ACADEMIC DETAILS</b></legend>
+
+    <form>
+        <label>College Name &emsp;&emsp;&nbsp;&nbsp;<input class="float-right" type="text"></label>
+        <br><br>
+        <label>Education <br> Details</label>
+        <br><br>
+        <label>Under <br> Graduate<select
+                class="float-right">
+            <option value="">B.Sc</option>
+            <option value="">B.Tech</option>
+            <option value="">B.Com</option>
+        </select>
+
+        </label>
+        <br><br>
+        <label>Passout Year<input class="float-right" type="date"></label>
+        <br><br>
+        <label>Post <br> Graduate<select
+                class="float-right">
+            <option value="">M.Sc</option>
+            <option value="">M.Tech</option>
+            <option value="">M.Com</option>
+        </select>
+
+        </label>
+        <br><br>
+        <label>Passout Year<input class="float-right" type="date"></label>
+        <br><br>
+        <label>Course Opted<input class="float-right" type="text"></label>
+        <br><br>
+        <label>Username<input class="float-right"
+                              type="text"></label>
+        <br><br>
+        <label>Password<input
+                class="float-right" type="password"></label>
+
+
+    </form>
+
+
+</fieldset>
+
+<br><br>
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+
+
+</body>
+</html>

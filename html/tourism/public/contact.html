@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Kozhikode</title>
+    <style>
+
+        * {
+
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+
+        }
+
+        html {
+            font-family: "Inter", sans-serif;
+            display: block;
+            position: relative;
+
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            display: block;
+            width: max-content;
+            text-decoration: none;
+            list-style-type: none;
+
+            color: #fcfcfc;
+            text-shadow: 0 0.2rem 0.5rem 0.1rem #00000000;
+        }
+
+        .nav-links {
+
+            text-decoration: none;
+            padding: 2rem;
+            color: #fcfcfc;
+            text-shadow: 0 0.2rem 0.5rem 0.1rem #00000000;
+        }
+
+        .nav-bar {
+            display: flex;
+            position: fixed;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+            height: 6rem;
+            width: 100%;
+            font-weight: bold;
+            background-color: #3F3F3F66;
+            box-shadow: 0 0.2rem 0.5rem 0.1rem #00000066;
+            backdrop-filter: blur(1rem);
+            border-radius: 0 0 3rem 3rem;
+            padding: 0 3.5rem 0 5rem;
+        }
+
+        .nav-bar > ul > li > a:hover {
+
+            transition: ease;
+            color: #040a00;
+            transition-duration: 250ms;
+        }
+
+        .nav-logo {
+
+            height: min-content;
+            width: 8%;
+
+        }
+
+        .mast-bg-ver {
+
+            height: min-content;
+            display: block;
+            position: absolute;
+            width: 100%;
+            object-fit: cover;
+            padding: 0 0 0 0;
+        }
+
+        .dest-section {
+            display: block;
+            position: relative;
+            text-align: justify;
+            padding: 0 4rem;
+            font-size: 1.2rem;
+
+
+        }
+
+        .dest-heading {
+            text-align: end;
+            padding: 8rem 0 2rem 0;
+            font-size: 5rem;
+            font-weight: bold;
+            font-family: "Bebas Neue", sans-serif;
+            color: #e6e6e6dd;
+            text-shadow: 0 0.2rem 0.5rem 0.1rem #00000066;
+        }
+
+        .para-container {
+            display: block;
+            position: relative;
+            text-align: center;
+            background-color: #57575733;
+            box-shadow: 0 0.2rem 0.5rem 0.1rem #00000066;
+            backdrop-filter: blur(1rem);
+            padding: 5rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            justify-content: center;
+        !important;
+            color: #e6e6e6cc;
+
+        }
+
+        .location {
+            display: block;
+            position: relative;
+            justify-content: center;
+        !important;
+        }
+
+        .stuff {
+            justify-content: center;
+            display: inline-block;
+            padding: 0 0 2rem 0;
+            transition: ease;
+            transition-duration: 500ms;
+            transform: translate(0rem, -0.5rem);
+        }
+
+
+        .stuff:hover {
+            font-size: 0;
+        }
+
+        .stuff:hover:after {
+            content: attr(data-hover);
+            font-size: 3rem;
+            transition-duration: 2500ms;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<nav class="nav-bar">
+    <div><img alt="" class="nav-logo" src="../img/logo.png"></div>
+
+    <ul>
+        <li><a class="nav-links" href="../index.html">Home</a></li>
+        <li><a class="nav-links" href="../public/about.html">About</a></li>
+        <li><a class="nav-links" href="../public/contact.html">Contact</a></li>
+        <li><a class="nav-links" href="../public/signup.html">Sign Up / Sign In</a></li>
+    </ul>
+</nav>
+<div>
+    <img alt="" class="mast-bg-ver" src="../img/banner-ver.jpg">
+</div>
+
+<div class="dest-section">
+
+
+    <div class="dest-heading">Contact us</div>
+    <div class="para-container">
+
+        <div>
+            <h1 class="stuff" data-hover="tourism@gmail.com">Email Us?</h1>
+            &emsp;
+            <h1 class="stuff" data-hover="+91 9876541232">Phone Us?</h1></div>
+
+
+        <div class="location">
+            <iframe allowfullscreen=""
+                    class="location"
+                    height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1005844.2106954268!2d75.14961454687501!3d10.010337599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da744f1ef43%3A0xcc24678b209588c9!2sFutura%20Labs!5e0!3m2!1sen!2sin!4v1709017347526!5m2!1sen!2sin"
+                    style="border:0;"
+                    width="600"></iframe>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

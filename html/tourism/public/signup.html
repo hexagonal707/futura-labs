@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" style="color: black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+
+            display: flex;
+            position: relative;
+            font-family: "Inter", sans-serif;
+
+        }
+
+        body{
+
+            background-color: #040a00;
+            display: flex;
+            position: relative;
+
+        }
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            display: block;
+            width: max-content;
+            text-decoration: none;
+            list-style-type: none;
+
+            color: #fcfcfc;
+            text-shadow: 0 0.2rem 0.5rem 0.1rem #00000000;
+        }
+
+        .nav-links {
+
+            text-decoration: none;
+            padding: 2rem;
+            color: #fcfcfc;
+            text-shadow: 0 0.2rem 0.5rem 0.1rem #00000000;
+        }
+
+        .nav-bar {
+            display: flex;
+            position: fixed;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+            height: 6rem;
+            width: 100vw;
+            font-weight: bold;
+            background-color: #3F3F3F66;
+            box-shadow: 0 0.2rem 0.5rem 0.1rem #00000066;
+            backdrop-filter: blur(1rem);
+            border-radius: 0 0 3rem 3rem;
+            padding: 0 3.5rem 0 5rem;
+        }
+
+        .nav-bar > ul > li > a:hover {
+
+            transition: ease;
+            color: #040a00;
+            transition-duration: 250ms;
+        }
+
+        .nav-logo {
+
+            height: min-content;
+            width: 8%;
+
+        }
+
+        .form {
+
+            display: flex;
+            position: relative;
+            border-radius: 3rem;
+            width: 60rem;
+            height: 40rem;
+            background: #919090;
+        }
+
+        .grid {
+
+            /*background: saddlebrown;*/
+            display: grid;
+            width: 100%;
+            padding: 3rem;
+            grid-template-columns: 1fr;
+
+
+        }
+
+        .grid-items {
+
+            display: grid;
+            width: 100%;
+
+        }
+
+        .sign-in {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #040a00;
+            padding-bottom: 2rem;
+        }
+
+        .label-cred {
+
+            font-size: 1.1rem;
+            font-weight: bold;
+
+        }
+
+        .label-remem {
+
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+
+        a{
+
+            text-decoration: none;
+            color: #e3e3e3;
+        }
+
+
+        .text-box-split {
+            background: #fcfcfc66;
+            width: 30%;
+            border-radius: 2rem;
+            border: 0;
+            padding: 1rem;
+            margin: 0 0 0 2rem;
+            /*box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;*/
+        }
+
+
+        .text-box {
+            background: rgba(252, 252, 252, 0.35);
+            width: 50%;
+            border-radius: 2rem;
+            border: 0;
+            padding: 1rem;
+            margin: 0 0 0 2rem;
+            /*box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;*/
+        }
+
+
+        .signup-button {
+            padding: 0.8rem 2rem;
+            border-radius: 4rem;
+            border: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #eaeaea;
+            background: rgba(7, 7, 7, 0.38);
+            box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;
+            backdrop-filter: blur(0.5rem);
+
+        }
+
+
+        .signup {
+
+            text-align: center;
+            font-weight: bold;
+
+        }
+        .main-container{
+
+            padding-left: 30rem;
+            padding-top: 10rem;
+
+            display: block;
+            position: absolute;
+            top: 50%;
+            left:-50%;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<nav class="nav-bar">
+    <div><img alt="" class="nav-logo" src="../img/logo.png"></div>
+
+    <ul>
+        <li><a class="nav-links" href="../index.html">Home</a></li>
+        <li><a class="nav-links" href="../public/about.html">About</a></li>
+        <li><a class="nav-links" href="../public/contact.html">Contact</a></li>
+        <li><a class="nav-links" href="../public/signup.html">Sign Up / Sign In</a></li>
+    </ul>
+</nav>
+
+<div class="main-container"><div class="form">
+    <div class="grid">
+
+
+        <div class="grid-items">
+            <div class="sign-in">Sign Up</div>
+
+            <div>
+                <label class="label-cred">First Name<input class="text-box-split" type="text"></label>
+                &emsp;
+                <label class="label-cred">Last Name<input class="text-box-split" type="text"></label>
+            </div>
+
+            <div>
+                <label class="label-cred">
+                    Gender&emsp;&emsp;&emsp;
+                    <input name="gender" type="radio">&nbsp;Male&emsp;
+                    <input name="gender" type="radio">&nbsp;Female&emsp;
+                    <input name="gender" type="radio">&nbsp;Other
+
+
+
+                </label>
+
+
+            </div>
+
+            <div><label class="label-cred">Email ID&emsp;&emsp;&emsp;&emsp;&emsp;<input class="text-box" type="email"></label></div>
+
+            <div><label class="label-cred">Mobile No&emsp;&emsp;&emsp;&emsp;<input class="text-box" type="number"></label></div>
+
+            <div><label class="label-cred">New Password&emsp;&nbsp;&nbsp;&nbsp;<input class="text-box" type="password"></label></div>
+
+            <div><label class="label-cred">Confirm Password<input class="text-box" type="password"></label></div>
+
+            <div><label class="label-remem"><input class="" type="checkbox">&emsp;Remember me</label></div>
+
+
+            <div class="signup">
+
+
+                <div>
+                    <button class="signup-button">Sign up
+                    </button>
+                </div>
+                <br>
+
+                <div>Have an account already? &nbsp;<a href="signin.html"> Sign In</a>&emsp;</div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div></div>
+
+
+
+</body>
+</html>

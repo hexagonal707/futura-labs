@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Bebas Neue Thin", sans-serif;
+        }
+
+        body {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            inset: 0;
+            background: #181818;
+        }
+
+        .product-name {
+            color: #282828;
+            position: absolute;
+            font-size: 15rem;
+            top: 0;
+            font-family: "Bebas Neue", sans-serif;
+        }
+
+        .container {
+            backdrop-filter: blur(3rem);
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0.3rem;
+            border-radius: 1.369rem;
+            background: rgba(119, 133, 133, 0.8);
+            box-shadow: 0 0 1.369rem 0 #ded7d766;
+            border: 0.3rem solid rgb(203, 203, 203);
+            overflow: hidden;
+        }
+
+        .grid-wrapper {
+            display: grid;
+            justify-items: center;
+            height: 100%;
+            gap: 0.2rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border-radius: 0 0 1rem 1rem;
+            scale: 98%;
+        }
+
+        .btn {
+            display: flex;
+            height: 5rem;
+            width: 5rem;
+            border: 0;
+            color: #e1e1e1;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.2rem;
+            background: #1e1e1e;
+            box-shadow: 0 0 2rem 0 #00000066;
+            font-size: 1.369rem;
+            transition: 200ms ease-in-out;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 1.369rem 0 #ded7d766;
+            border: 0.1rem solid #a1a1a1;
+            transition: 200ms ease-in-out;
+        }
+
+        .btn-ac {
+            grid-row-start: 5;
+            grid-column: 1 / 3;
+            width: 100%;
+            background: #8f2424db;
+            border-radius: 0 0.2rem 0 0.6rem;
+        }
+
+        .btn-eq {
+            grid-row-start: 5;
+            grid-column: 3 / 5;
+            width: 100%;
+            border-radius: 0.2rem 0 0.6rem 0;
+            background: rgba(36, 79, 143, 0.56);
+            font-size: 2rem;
+        }
+
+        .btn-back {
+            background-color: #676767;
+        }
+
+        .btn-plus {
+            font-size: 1.8rem;
+
+        }
+
+        .btn-min {
+            font-size: 2.5rem;
+        }
+
+        .btn-div {
+            font-size: 1.5rem;
+
+        }
+
+        .btn-mul {
+            font-size: 1.5rem;
+        }
+
+        .res {
+            height: 12rem;
+            background: #d54c25;
+            border-radius: 1rem 1rem 1rem 1rem;
+            box-shadow: inset 0 0 0.369rem 0 #00000066;
+            border: 0.5rem solid rgba(16, 16, 16, 0.73);
+            font-weight: bolder;
+            text-align: end;
+            align-items: end;
+            display: flex;
+            justify-content: end;
+            padding: 1rem;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="product-name">Calculator</div>
+<div class="container">
+    <div class="res" id="display"></div>
+    <div class="grid-wrapper">
+        <button class="btn" onclick="getValue(7)">7</button>
+        <button class="btn" onclick="getValue(8)">8</button>
+        <button class="btn" onclick="getValue(9)">9</button>
+        <button class="btn btn-div" onclick="divide()">/</button>
+        <button class="btn" onclick="getValue(4)">4</button>
+        <button class="btn" onclick="getValue(5)">5</button>
+        <button class="btn" onclick="getValue(6)">6</button>
+        <button class="btn btn-mul" onclick="multiply()">x</button>
+        <button class="btn" onclick="getValue(1)">1</button>
+        <button class="btn" onclick="getValue(2)">2</button>
+        <button class="btn" onclick="getValue(3)">3</button>
+        <button class="btn btn-min" onclick="subtract()">-</button>
+        <button class="btn" onclick="getValue(0)">0</button>
+        <button class="btn" onclick="getValue('.')">.</button>
+        <button class="btn btn-back" onclick="backspace()">&leftarrow;</button>
+        <button class="btn btn-plus" onclick="add()">+</button>
+        <button class="btn btn-ac" onclick="clearDisplay()">AC</button>
+        <button class="btn btn-eq" onclick="calculate()">=</button>
+    </div>
+</div>
+
+<script src="js/script.js">
+
+</script>
+</body>
+</html>

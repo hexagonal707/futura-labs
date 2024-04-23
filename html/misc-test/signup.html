@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" style="color: black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+
+            background: #5f96cc;
+            display: flex;
+            height: 100%;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            font-family: "Inter", sans-serif;
+
+        }
+
+        .form {
+
+            display: flex;
+            position: relative;
+            border-radius: 3rem;
+            width: 60rem;
+            height: 40rem;
+            background: #6ea4e1;
+        }
+
+        .grid {
+
+            /*background: saddlebrown;*/
+            display: grid;
+            width: 100%;
+            padding: 3rem;
+            grid-template-columns: 1fr;
+
+
+        }
+
+        .grid-items {
+
+            display: grid;
+            width: 100%;
+
+        }
+
+        .sign-in {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #040a00;
+        }
+
+        .label-cred {
+
+            font-size: 1.5rem;
+            font-weight: bold;
+
+        }
+
+        .label-remem {
+
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+
+
+        .text-box-split {
+            background: #9fccff;
+            width: 30%;
+            border-radius: 4rem;
+            border: 0;
+            padding: 1rem;
+            margin: 0 0 0 2rem;
+            box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;
+        }
+
+
+        .text-box {
+            background: #9fccff;
+            width: 50%;
+            border-radius: 4rem;
+            border: 0;
+            padding: 1rem;
+            margin: 0 0 0 2rem;
+            box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;
+        }
+
+
+        .login-button {
+            padding: 0.8rem 2rem;
+            border-radius: 4rem;
+            border: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #013b54;
+            background: #3c91ce;
+            box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;
+
+        }
+
+
+        .signup {
+
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="form">
+    <div class="grid">
+
+
+        <div class="grid-items">
+            <div class="sign-in">Sign Up</div>
+
+            <div>
+                <label class="label-cred">First Name<input class="text-box-split" type="text"></label>
+                &emsp;
+                <label class="label-cred">Last Name<input class="text-box-split" type="text"></label>
+            </div>
+
+            <div>
+                <label class="label-cred">
+                    Gender&emsp;&emsp;&emsp;
+                    <input type="radio">&nbsp;Male&emsp;
+                    <input type="radio">&nbsp;Female&emsp;
+                    <input type="radio">&nbsp;Other
+
+
+
+                </label>
+
+
+            </div>
+
+            <div><label class="label-cred">Email ID&emsp;&emsp;&emsp;&emsp;&emsp;<input class="text-box" type="email"></label></div>
+
+            <div><label class="label-cred">Mobile No&emsp;&emsp;&emsp;&emsp;<input class="text-box" type="number"></label></div>
+
+            <div><label class="label-cred">New Password&emsp;&emsp;<input class="text-box" type="password"></label></div>
+
+            <div><label class="label-cred">Confirm Password<input class="text-box" type="password"></label></div>
+
+            <div><label class="label-remem"><input class="" type="checkbox">Remember me</label></div>
+
+
+            <div class="signup">
+
+
+                <div>
+                    <button class="login-button">Login
+                </button>
+                </div>
+                <br>
+
+                <div>Have an account already? &nbsp;<a href="#"> Sign In</a>&emsp;</div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

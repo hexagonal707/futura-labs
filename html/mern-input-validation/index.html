@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            display: flex;
+            width: 100%;
+            background-color: #1e1e1e;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #form-outer-box {
+            position: absolute;
+            z-index: 0;
+            inset: 0;
+            margin: auto;
+            background-color: #8bd7e1;
+            height: 25rem;
+            width: 25rem;
+            align-items: center;
+            border-radius: 0.5rem;
+        }
+
+        .errorBox {
+            height: 1.2rem;
+            width: max-content;
+            background: #ff9191;
+            margin: 0.3rem 1rem 0 0;
+            border-radius: 0.4rem;
+            border: 0.1rem #ff7b7b solid;
+            text-align: left;
+            padding: 0.8rem 0.5rem;
+            color: #620000;
+            /*visibility: visible;*/
+            justify-content: center;
+            align-items: center;
+            display: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        form {
+            height: 100%;
+        }
+
+        form > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 0.5rem;
+        }
+
+        input {
+            outline: none;
+            width: min-content;
+            border: none;
+            border-radius: 0.2rem;
+            padding: 0.5rem;
+        }
+
+        button {
+            padding: 0.8rem 4.5rem;
+            margin: 1rem;
+            border-radius: 0.5rem;
+            outline: none;
+            border: none;
+            box-shadow: 0 0.2rem 5rem 0 #00000066;
+            background-color: #1f1f1f;
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+        }
+    </style>
+</head>
+
+<body>
+<div id="form-outer-box">
+    <form>
+        <div>
+            <div>
+                <label for="username"><b>Username</b></label>
+                <br/>
+                <input id="username" onkeyup="checkAll()" type="text"/>
+                <div class="errorBox" id="usernameError">Incorrect username!</div>
+            </div>
+
+            <div>
+                <label for="email"><b>Email</b></label>
+                <br/>
+                <input id="email" onkeyup="checkAll()" type="email"/>
+                <div class="errorBox" id="emailError">Incorrect email!</div>
+            </div>
+
+            <div>
+                <label for="password"><b>Password</b></label>
+                <br/>
+                <input id="password" onkeyup="checkAll()" type="password"/>
+                <div class="errorBox" id="passwordError">Weak Password</div>
+            </div>
+
+            <button onclick="checkAll()" type="button"><b>Sign Up</b></button>
+        </div>
+    </form>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

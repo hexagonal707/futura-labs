@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" style="color: black">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+
+            background: #6DCC5F;
+            display: flex;
+            height: 100%;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            font-family: "Inter", sans-serif;
+
+        }
+
+        .form {
+
+            display: flex;
+            position: relative;
+            border-radius: 3rem;
+            width: 60rem;
+            height: 30rem;
+            background: #83e16e;
+        }
+
+        .grid {
+
+            /*background: saddlebrown;*/
+            display: grid;
+            width: 100%;
+            padding: 3rem;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .grid-items {
+
+            display: grid;
+
+            width: 100%;
+
+        }
+
+        .sign-in {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #040a00;
+        }
+
+        .label-cred {
+
+            font-size: 1.5rem;
+            font-weight: bold;
+
+        }
+
+        .label-remem {
+
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+
+        .text-box {
+            background: #a4ff9f;
+            width: 50%;
+            border-radius: 2rem;
+            border: 0;
+            padding: 1rem;
+            margin: 0 0 0 2rem;
+            /*box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;*/
+        }
+
+        .signup-button {
+            padding: 0.8rem 2rem;
+            border-radius: 4rem;
+            border: 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #045408;
+            background: #40ce3c;
+            box-shadow: 0 0.1rem 0.5rem 0.1rem #00000022;
+
+        }
+
+        .socials-box{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            text-align: center;
+
+
+        }
+
+        .socials-icons{
+            width: 80%;
+        }
+
+
+        .signup{
+
+            text-align: center;
+            font-weight: bold;
+
+        }
+
+        .signup-link-color{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="form">
+    <div class="grid">
+
+
+        <div class="grid-items">
+            <div class="sign-in">Sign In</div>
+
+            <div><label class="label-cred">Username<input class="text-box" type="text"></label></div>
+
+            <div><label class="label-cred">Password&nbsp;<input class="text-box" type="password"></label></div>
+
+            <div><label class="label-remem"><input class="" type="checkbox"> &nbsp;Remember me</label></div>
+
+
+            <div class="signup">
+
+
+
+                <div>
+                    Don't have an account? &nbsp;<a class="signup-link-color" href="signup.html"> Sign up</a>&emsp;<button class="login-button">Login</button>
+                </div>
+                <br>
+
+                <div><a href="#">Forgot your password?</a></div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="socials-box">
+            <img class="socials-icons" src="../img/socials/fb.png" alt="facebook">
+            <img class="socials-icons" src="../img/socials/insta.png" alt="instagram">
+            <img class="socials-icons" src="../img/socials/x.png" alt="x">
+
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -116,8 +116,11 @@ const Home = () => {
             <Link to={"/reactquery"} style={{ textDecoration: "none" }}>
               <BtnPaths>reactQuery</BtnPaths>
             </Link>
-            <Link to={"/usecallback"} style={{ textDecoration: "none" }}>
-              <BtnPaths>useCallback</BtnPaths>
+            <Link
+              to={"/usecontextreducerpageone"}
+              style={{ textDecoration: "none" }}
+            >
+              <BtnPaths>useContextReducer</BtnPaths>
             </Link>
             <Link to={"/redux"} style={{ textDecoration: "none" }}>
               <BtnPaths>Redux</BtnPaths>

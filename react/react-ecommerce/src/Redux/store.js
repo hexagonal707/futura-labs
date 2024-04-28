@@ -10,7 +10,7 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import DataReducer from "./apiSlice.js";
+import DataReducer from "./phoneApiSlice.js";
 
 const persistConfig = {
   key: "root",
@@ -18,7 +18,7 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({ apiData: DataReducer });
+const rootReducer = combineReducers({ phoneApiData: DataReducer });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

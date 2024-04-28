@@ -1,36 +1,66 @@
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { LuShoppingCart, LuUserCircle2 } from "react-icons/lu";
 
-// Styled component for the navigation bar container
 const NavbarContainer = styled.nav`
   display: flex;
+  justify-content: right;
   width: 100%;
-  position: fixed;
+  height: 4rem;
+  position: sticky;
   background-color: #333;
-  padding: 10px 20px;
 `;
 
-// Styled component for the unordered list within the navigation bar
 const NavbarList = styled.ul`
+  display: flex;
+  align-items: center;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 `;
 
-// Styled component for the list items within the navigation bar
 const NavbarItem = styled.li`
-  display: inline;
-  margin-right: 1rem;
+  align-items: center;
 `;
 
-// Styled component for the links within the navigation bar
+const NavbarIcon = styled.div`
+  transform: translate(0, 0.2rem);
+  font-size: 1.5rem;
+`;
+
 const NavbarLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 2rem;
+  align-content: center;
   color: white;
+  gap: 0.6rem;
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
+`;
+
+const CartCounter = styled.div`
+  display: block;
+  z-index: 2;
+  position: absolute;
+  top: -10%;
+  right: -50%;
+  align-content: center;
+  font-weight: bold;
+  outline: 0.15rem solid #333;
+  border-radius: 25rem;
+  height: max-content;
+  width: max-content;
+
+  padding: 0.1rem 0.4rem;
+  font-size: 0.6rem;
+  color: #ffffff;
+  background: #970030;
+`;
+const CartContainer = styled.div`
+  position: relative;
 `;
 
 const Navbar = () => {
@@ -38,13 +68,19 @@ const Navbar = () => {
     <NavbarContainer>
       <NavbarList>
         <NavbarItem>
-          <NavbarLink to={"/"}>Home</NavbarLink>
+          <NavbarLink to={"/login"}>
+            <NavbarIcon>{LuUserCircle2()}</NavbarIcon>
+            <div>Login</div>
+          </NavbarLink>
         </NavbarItem>
         <NavbarItem>
-          <NavbarLink to={"/about"}>About Us</NavbarLink>
-        </NavbarItem>
-        <NavbarItem>
-          <NavbarLink to={"/contact"}>Contact</NavbarLink>
+          <NavbarLink to={"/cart"}>
+            <CartContainer>
+              <CartCounter>1</CartCounter>
+
+              <NavbarIcon>{LuShoppingCart()}</NavbarIcon>
+            </CartContainer>
+          </NavbarLink>
         </NavbarItem>
       </NavbarList>
     </NavbarContainer>

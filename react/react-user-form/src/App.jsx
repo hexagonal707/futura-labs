@@ -10,6 +10,8 @@ import UseCallbackParent from "./Pages/UseCallback/UseCallbackParent.jsx";
 import ReduxPageOne from "./Pages/Redux/ReduxPageOne.jsx";
 import ReduxPageTwo from "./Pages/Redux/ReduxPageTwo.jsx";
 import ReactQuery from "./Pages/ReactQuery/ReactQuery.jsx";
+import UseContextReducerPageOne from "./Pages/UseContextReducer/UseContextReducerPageOne.jsx";
+import UseContextReducerPageTwo from "./Pages/UseContextReducer/UseContextReducerPageTwo.jsx";
 
 const AppContext = createContext();
 
@@ -59,13 +61,17 @@ function App() {
       path: "/reactQuery",
       element: <ReactQuery />,
     },
+    {
+      path: "/usecontextreducerpageone",
+      element: <UseContextReducerPageOne />,
+    },
+    {
+      path: "/usecontextreducerpagetwo",
+      element: <UseContextReducerPageTwo />,
+    },
   ]);
 
-  return (
-
-      <RouterProvider router={pageRouter} />
-   
-  );
+  return <RouterProvider router={pageRouter} />;
 }
 
 export default App;

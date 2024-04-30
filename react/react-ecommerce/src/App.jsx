@@ -6,6 +6,7 @@ import Contact from "./Pages/Contact/Contact.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import SignUp from "./Pages/SignUp/SignUp.jsx";
+import ItemDetail from "./Pages/ItemDetail/ItemDetail.jsx";
 
 const AppContext = createContext();
 
@@ -34,6 +35,10 @@ function App() {
     {
       path: "/signup",
       element: <SignUp />,
+    },
+    {
+      path: "/itemdetail/:brand/:model",
+      element: <ItemDetail />,
     },
   ]);
 

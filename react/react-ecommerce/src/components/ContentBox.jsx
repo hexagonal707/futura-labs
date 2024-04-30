@@ -1,28 +1,60 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { fetchPhoneApi } from "../api.js";
+import { Link } from "react-router-dom";
 
 const MainBox = styled.div`
-  display: flex;
-  height: 20rem;
+  display: grid;
+
   width: 100%;
-  gap: 3rem;
-  background-color: #d12121;
+  padding: 2rem;
+  grid-template-columns: 1fr 3fr 1fr;
+  border-radius: 1rem;
+  /*outline: 0.1rem solid rgba(46, 46, 46, 0.27);*/
+  background-color: rgba(255, 255, 255, 0.53);
 `;
 
-const PlaceHolder = styled.div`
-  margin: 2rem 0 0 2rem;
-  height: 15rem;
-  width: 9rem;
-  border-radius: 1rem;
-  background: orangered;
+const PlaceHolderContainer = styled.div`
+  display: flex;
+  width: min-content;
+  position: relative;
+  /*background-color: rgba(205, 28, 28, 0.88);*/
+`;
+
+const PlaceHolderImage = styled.img`
+  display: block;
+  height: auto;
+  width: 10rem;
+  position: relative;
 `;
 
 const PhoneDetailContainer = styled.div`
   display: flex;
   width: 100%;
-  margin: 2rem 2rem 2rem 0;
-  background-color: #82b815;
+  /*background-color: #82b815;*/
+`;
+const PriceHeading = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+`;
+const PhoneNameHeading = styled.div`
+  font-size: 1.8rem;
+  font-weight: 600;
+`;
+
+const SpecsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  width: 15rem;
+  border-radius: 0.3rem;
+  outline: 0.1rem solid #404040ff;
+`;
+
+const Specs = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ContentBox = () => {
@@ -40,11 +72,53 @@ const ContentBox = () => {
     ? phoneApiDataState.map((li) => {
         return (
           <MainBox key={li.id}>
-            <PlaceHolder></PlaceHolder>
+            <PlaceHolderContainer>
+              <PlaceHolderImage src={li.img} alt="" />
+            </PlaceHolderContainer>
 
             <PhoneDetailContainer>
-              <h3>{`${li.brand} ${li.model}`}</h3>
+              <div>
+                <PhoneNameHeading>
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                    }}
+                    to={`/itemdetail/${li.brand}/${li.model}`}
+                  >{`${li.brand} ${li.model}`}</Link>
+                </PhoneNameHeading>
+                <SpecsContainer>
+                  <Specs>
+                    <span>
+                      <b>Display Size</b>
+                    </span>{" "}
+                    <span>{li.display_size_inches} inches</span>
+                  </Specs>
+
+                  <Specs>
+                    <span>
+                      <b>RAM</b>
+                    </span>{" "}
+                    <span>{li.ram_gb} GB</span>
+                  </Specs>
+                  <Specs>
+                    <span>
+                      <b>Storage</b>
+                    </span>{" "}
+                    <span>{li.storage_gb} GB</span>
+                  </Specs>
+                  <Specs>
+                    <span>
+                      <b>Release Year</b>
+                    </span>{" "}
+                    <span>{li.release_year}</span>
+                  </Specs>
+                </SpecsContainer>
+              </div>
             </PhoneDetailContainer>
+            <PriceHeading>
+              <div> {li.star_rating}</div>${li.price_usd}
+            </PriceHeading>
           </MainBox>
         );
       })

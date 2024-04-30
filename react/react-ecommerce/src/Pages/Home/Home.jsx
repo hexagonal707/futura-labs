@@ -2,6 +2,11 @@ import Navbar from "../../components/Navbar.jsx";
 import ContentBox from "../../components/ContentBox.jsx";
 import styled from "styled-components";
 
+const MainContainer = styled.div`
+  padding-top: 5rem;
+  background-color: #ededed;
+`;
+
 const PhoneLayoutContainer = styled.div`
   display: flex;
   position: relative;
@@ -10,8 +15,8 @@ const PhoneLayoutContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 2rem 15rem;
-  background: #4bc869;
+  padding: 2rem min(10vw, 15rem);
+  /* background: #333333ff;*/
 `;
 const HomeHeading = styled.h1`
   text-align: center;
@@ -21,10 +26,12 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <HomeHeading>Buy Phones</HomeHeading>
-      <PhoneLayoutContainer>
-        <ContentBox />
-      </PhoneLayoutContainer>
+      <MainContainer>
+        <HomeHeading>Buy Phones</HomeHeading>
+        <PhoneLayoutContainer>
+          <ContentBox />
+        </PhoneLayoutContainer>
+      </MainContainer>
     </>
   );
 };

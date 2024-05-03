@@ -84,34 +84,20 @@ const DescriptionInputContainer = styled.textarea`
 /*const BtnAddTaskTest = styled.button``;
 const BtnDelTaskTest = styled.button``;*/
 const Home = () => {
-  /* const taskList = [];
-  
-                                                                                                                                 const taskData = {
-                                                                                                                                   id: (taskList.length = taskList.length + 1),
-                                                                                                                                   title: "",
-                                                                                                                                   description: "",
-                                                                                                                                 };
-  
-                                                                                                                                 const [popUpState, setPopUpState] = useState(null);
-                                                                                                                                 const [titleState, setTitleState] = useState("");
-                                                                                                                                 const [descriptionState, setDescriptionState] = useState("");
-  
-                                                                                                                                 console.log(taskList[0]);
-  
-                                                                                                                                 function closeTaskWindow() {
-                                                                                                                                   return setPopUpState(null);
-                                                                                                                                 }*/
-
   const [titleState, setTitleState] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
   const [taskList, setTaskList] = useState([]);
 
   function addTask(id, titleState, descriptionState) {
-    return {
+    const newTask = {
       id: id,
       title: titleState,
       description: descriptionState,
     };
+
+    const updatedTaskList = [...taskList, newTask];
+    console.log(updatedTaskList);
+    return updatedTaskList;
   }
 
   return (
@@ -185,12 +171,7 @@ const Home = () => {
           />
           <button
             onClick={() => {
-              taskList.push(
-                setTaskList([addTask("", titleState, descriptionState)]),
-              );
-
-              /* setTaskList([addTask("", titleState, descriptionState)]);
-                             console.log(taskList);*/
+              setTaskList([...addTask("", titleState, descriptionState)]);
             }}
           >
             Add

@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6b698d-4eec-409a-8359-5868b319df5b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/react-taskapp-mt.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vite.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/PopUp.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pages/Home/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/phoneApiSlice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react-ecommerce/src/components/ContentBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react-ecommerce/src/components/ContentBox.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react-ecommerce/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react-ecommerce/src/components/Navbar.jsx" afterDir="false" />
+    <list default="true" id="7b6b698d-4eec-409a-8359-5868b319df5b" name="Changes" comment="add react-taskapp-mt project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,8 +120,17 @@
       <option name="presentableId" value="Default" />
       <updated>1714710575586</updated>
       <workItem from="1714710576664" duration="5741000" />
-      <workItem from="1714716443694" duration="14267000" />
+      <workItem from="1714716443694" duration="16463000" />
     </task>
+    <task id="LOCAL-00001" summary="add react-taskapp-mt project">
+      <option name="closed" value="true" />
+      <created>1714731017445</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714731017445</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,5 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add react-taskapp-mt project" />
+    <option name="LAST_COMMIT_MESSAGE" value="add react-taskapp-mt project" />
   </component>
 </project>

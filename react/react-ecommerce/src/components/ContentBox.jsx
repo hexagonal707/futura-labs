@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const MainBox = styled.div`
   display: grid;
-
   width: 100%;
+  grid-gap: 2rem;
   padding: 2rem;
   grid-template-columns: 1fr 3fr 1fr;
   border-radius: 1rem;
@@ -38,18 +38,20 @@ const PriceHeading = styled.div`
   font-weight: 700;
 `;
 const PhoneNameHeading = styled.div`
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
 `;
 
 const SpecsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  gap: 1rem;
   padding: 1rem;
   width: 15rem;
   border-radius: 0.3rem;
-  outline: 0.1rem solid #404040ff;
+  background: #e4e4e4;
+  outline: 0.1rem solid #bababa;
 `;
 
 const Specs = styled.div`

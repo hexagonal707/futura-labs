@@ -14,7 +14,7 @@ const NavbarContainer = styled.div`
   border-radius: 1.2rem;
   justify-content: right;
   backdrop-filter: blur(1rem);
-  background-color: #23212133;
+  background-color: rgba(66, 66, 66, 0.4);
   outline: 0.1rem solid #65656577;
 `;
 
@@ -37,7 +37,7 @@ const NavbarLink = styled(Link)`
   display: flex;
   margin-right: 4rem;
   align-content: center;
-  color: #1e1e1e;
+  color: #e1e1e1;
   text-decoration: none;
 
   &:hover {

@@ -123,7 +123,7 @@ const Home = () => {
             <PopUpBlurContainer>
               <PopUpMainContainer>
                 <FormContainer>
-                  <InputGridContainer key={taskList.length++}>
+                  <InputGridContainer>
                     <TitleInputContainer
                       onChange={(event) => setTitleState(event.target.value)}
                       placeholder="Title"

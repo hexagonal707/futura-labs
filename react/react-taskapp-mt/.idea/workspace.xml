@@ -120,7 +120,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714710575586</updated>
       <workItem from="1714710576664" duration="5741000" />
-      <workItem from="1714716443694" duration="17038000" />
+      <workItem from="1714716443694" duration="17605000" />
     </task>
     <task id="LOCAL-00001" summary="add react-taskapp-mt project">
       <option name="closed" value="true" />
@@ -138,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714733376056</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update logic">
+      <option name="closed" value="true" />
+      <created>1714733976029</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714733976029</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

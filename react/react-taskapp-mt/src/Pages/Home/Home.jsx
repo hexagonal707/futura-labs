@@ -22,6 +22,15 @@ const BtnClosePopUp = styled.button`
   padding: 0.7rem 2rem;
 `;
 
+const BtnAddTaskTest = styled.button`
+  width: max-content;
+  border-radius: 0.5rem;
+  border: none;
+  background: black;
+  color: white;
+  padding: 0.7rem 2rem;
+`;
+
 const PopUpBlurContainer = styled.div`
   display: flex;
   position: absolute;
@@ -87,6 +96,11 @@ const Home = () => {
   const [titleState, setTitleState] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
   const [taskList, setTaskList] = useState([]);
+  const [popUpState, setPopUpState] = useState();
+
+  function closeTaskWindow() {
+    return setPopUpState(null);
+  }
 
   function addTask(id, titleState, descriptionState) {
     const newTask = {
@@ -102,7 +116,7 @@ const Home = () => {
 
   return (
     <MainContainer>
-      {/* {popUpState}
+      {popUpState}
       <BtnClosePopUp
         onClick={() => {
           return setPopUpState(
@@ -111,20 +125,16 @@ const Home = () => {
                 <FormContainer>
                   <InputGridContainer key={taskList.length++}>
                     <TitleInputContainer
-                      onChange={(event) => {
-                        setTitleState((taskData.title = event.target.value));
-                      }}
+                      onChange={(event) => setTitleState(event.target.value)}
                       placeholder="Title"
                       type="text"
                       id="title"
                     />
 
                     <DescriptionInputContainer
-                      onChange={(event) => {
-                        setDescriptionState(
-                          (taskData.description = event.target.value),
-                        );
-                      }}
+                      onChange={(event) =>
+                        setDescriptionState(event.target.value)
+                      }
                       placeholder="Type something..."
                       type={"text"}
                       id="description"
@@ -140,13 +150,14 @@ const Home = () => {
                     </BtnClosePopUp>
                     <BtnAddTaskTest
                       onClick={() => {
-                        console.log(taskData);
-                        return taskList.push(taskData);
+                        setTaskList([
+                          ...addTask("", titleState, descriptionState),
+                        ]);
                       }}
                     >
                       Add
                     </BtnAddTaskTest>
-                    <BtnDelTaskTest>Delete</BtnDelTaskTest>
+                    {/*<BtnDelTaskTest>Delete</BtnDelTaskTest>*/}
                   </div>
                 </FormContainer>
               </PopUpMainContainer>
@@ -156,7 +167,7 @@ const Home = () => {
       >
         Add Task
       </BtnClosePopUp>
-*/}
+
       <TaskLayoutContainer>
         <div>
           <input

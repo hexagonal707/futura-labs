@@ -7,15 +7,18 @@ const NavbarContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  margin: 2rem;
+  justify-self: center;
   height: 4rem;
+  width: 50%;
   z-index: 2;
-  margin: 1rem;
   position: fixed;
-  border-radius: 1.2rem;
+  border-radius: 1rem;
   justify-content: right;
-  backdrop-filter: blur(1rem);
-  background-color: rgba(66, 66, 66, 0.4);
-  outline: 0.1rem solid #65656577;
+  backdrop-filter: blur(2rem);
+  background: #ffc14222;
+  /*background-color: rgb(14, 14, 14);*/
+  outline: 0.1rem solid #ffc14266;
 `;
 
 const NavbarList = styled.div`
@@ -37,7 +40,7 @@ const NavbarLink = styled(Link)`
   display: flex;
   margin-right: 4rem;
   align-content: center;
-  color: #e1e1e1;
+  color: #ffe2a6;
   text-decoration: none;
 
   &:hover {
@@ -53,14 +56,14 @@ const CartCounter = styled.div`
   right: -40%;
   align-content: center;
   font-weight: bold;
-  outline: 0.15rem solid #7a0000;
-  border-radius: 25rem;
+  outline: 0.12rem solid rgba(251, 170, 0, 1);
+  border-radius: 2rem;
   height: max-content;
   width: max-content;
   padding: 0.1rem 0.4rem;
   font-size: 0.6rem;
   color: #e1e1e1;
-  background: #a10000;
+  background: rgb(96, 86, 58);
 `;
 const CartContainer = styled.div`
   position: relative;
@@ -78,9 +81,9 @@ const Navbar = () => {
         <NavbarItem>
           <NavbarLink to={"/cart"}>
             <CartContainer>
-              <CartCounter>1</CartCounter>
+              <CartCounter>10</CartCounter>
               <NavbarIcon>
-                <ShoppingBagOutlined style={{ color: "black" }} />
+                <ShoppingBagOutlined />
               </NavbarIcon>
             </CartContainer>
           </NavbarLink>

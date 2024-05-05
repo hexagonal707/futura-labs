@@ -5,24 +5,26 @@ import { Link } from "react-router-dom";
 
 const MainBox = styled.div`
   display: grid;
-  width: 100%;
+  height: 25rem;
   grid-gap: 2rem;
+  color: #e6e6e6;
   padding: 2rem;
   grid-template-columns: 1fr 3fr 1fr;
   border-radius: 1rem;
-  /*outline: 0.1rem solid rgba(46, 46, 46, 0.27);*/
-  background-color: rgba(255, 255, 255, 0.53);
+  outline: 0.1rem solid #ffffff11;
+  background-color: #04040488;
 `;
 
 const PlaceHolderContainer = styled.div`
-  display: flex;
+  display: block;
+  height: auto;
+  align-content: center;
   width: min-content;
   position: relative;
-  /*background-color: rgba(205, 28, 28, 0.88);*/
 `;
 
 const PlaceHolderImage = styled.img`
-  display: block;
+  display: flex;
   height: auto;
   width: 10rem;
   position: relative;
@@ -31,13 +33,17 @@ const PlaceHolderImage = styled.img`
 const PhoneDetailContainer = styled.div`
   display: flex;
   width: 100%;
-  /*background-color: #82b815;*/
 `;
 const PriceHeading = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
   font-size: 1.5rem;
   font-weight: 700;
 `;
 const PhoneNameHeading = styled.div`
+  text-align: left;
   font-size: 1.6rem;
   font-weight: 700;
 `;
@@ -50,13 +56,35 @@ const SpecsContainer = styled.div`
   padding: 1rem;
   width: 15rem;
   border-radius: 0.3rem;
-  background: #e4e4e4;
-  outline: 0.1rem solid #bababa;
+  background: #1c1c1c;
+  outline: 0.1rem solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 1rem 0 #ffffff22;
 `;
 
 const Specs = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const BtnAddToCart = styled.button`
+  border: 0.1rem solid #595959;
+  background: #0c0c0c;
+  color: #ffffff;
+  width: max-content;
+  backdrop-filter: blur(2rem);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.2rem 0 #30303044;
+
+  &:hover {
+    transition: 100ms ease-in-out;
+    background: #ffc142;
+    box-shadow: 0 0 0.6rem 0 #ffc14266;
+    color: black;
+    font-weight: bold;
+  }
 `;
 
 const ContentBox = () => {
@@ -84,7 +112,7 @@ const ContentBox = () => {
                   <Link
                     style={{
                       textDecoration: "none",
-                      color: "black",
+                      color: "white",
                     }}
                     to={`/itemdetail/${li.brand}/${li.model}`}
                   >{`${li.brand} ${li.model}`}</Link>
@@ -119,7 +147,13 @@ const ContentBox = () => {
               </div>
             </PhoneDetailContainer>
             <PriceHeading>
-              <div> {li.star_rating}</div>${li.price_usd}
+              <div>
+                <div style={{ margin: "1rem 0" }}> {li.star_rating}</div>
+                <div>${li.price_usd}&nbsp;</div>
+              </div>
+              <div>
+                <BtnAddToCart>Add to Cart</BtnAddToCart>
+              </div>
             </PriceHeading>
           </MainBox>
         );

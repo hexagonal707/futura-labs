@@ -3,20 +3,18 @@ import ContentBox from "../../components/ContentBox.jsx";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  padding-top: 5rem;
-  background-color: #ededed;
+  position: absolute;
+  padding-top: 8rem;
+  background-color: #171717;
 `;
 
 const PhoneLayoutContainer = styled.div`
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  grid-gap: 2rem;
   padding: 2rem min(10vw, 15rem);
-  /* background: #333333ff;*/
 `;
 const HomeHeading = styled.h1`
   text-align: center;
@@ -27,7 +25,7 @@ const Home = () => {
     <>
       <Navbar />
       <MainContainer>
-        <HomeHeading>Buy Phones</HomeHeading>
+        <HomeHeading></HomeHeading>
         <PhoneLayoutContainer>
           <ContentBox />
         </PhoneLayoutContainer>

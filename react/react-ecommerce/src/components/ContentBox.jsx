@@ -66,7 +66,7 @@ const Specs = styled.div`
   justify-content: space-between;
 `;
 
-const BtnAddToCart = styled.button`
+/*const BtnAddToCart = styled.button`
   border: 0.1rem solid #595959;
   background: #0c0c0c;
   color: #ffffff;
@@ -85,7 +85,7 @@ const BtnAddToCart = styled.button`
     color: black;
     font-weight: bold;
   }
-`;
+`;*/
 
 const ContentBox = () => {
   const [phoneApiDataState, setPhoneApiDataState] = useState([]);
@@ -148,10 +148,9 @@ const ContentBox = () => {
             </PhoneDetailContainer>
             <PriceHeading>
               <div>
-                <div style={{ margin: "1rem 0" }}> {li.star_rating}</div>
-                <div>${li.price_usd}&nbsp;</div>
+                <div style={{ margin: "1rem 0" }}>{li.star_rating}</div>
+                <div>₹{li.price.inr}&nbsp;</div>
               </div>
-              <div>{/*<BtnAddToCart>Add to Cart</BtnAddToCart>*/}</div>
             </PriceHeading>
           </MainBox>
         );

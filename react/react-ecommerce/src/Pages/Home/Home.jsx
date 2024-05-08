@@ -3,7 +3,10 @@ import ContentBox from "../../components/ContentBox.jsx";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
+  display: flex;
   position: absolute;
+  height: auto;
+  width: 100%;
   padding-top: 8rem;
   background-color: #171717;
 `;

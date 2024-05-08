@@ -5,13 +5,15 @@ import { fetchPhoneDetail } from "../../api.js";
 import { useDispatch } from "react-redux";
 import { addCartInfo } from "../../Redux/phoneApiSlice.js";
 import Navbar from "../../components/Navbar.jsx";
+import { Alert } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
   padding: 8rem 3rem 0 3rem;
-  height: auto;
+  height: max(100%);
   width: 100%;
   background-color: #171717;
   color: white;
@@ -37,7 +39,7 @@ const BtnAddToCart = styled.button`
     font-weight: bold;
   }
 `;
-const BtnInCart = styled.button`
+/*const BtnInCart = styled.button`
   border: 0.1rem solid #595959;
   background: #ffc142;
   color: black;
@@ -51,19 +53,19 @@ const BtnInCart = styled.button`
 
   &:hover {
   }
-`;
+`;*/
 
 const PhoneLayoutContainer = styled.div`
   padding: 2rem min(10vw, 15rem);
-  height: max-content;
+  height: 100%;
   display: grid;
   grid-gap: 2rem;
   color: #e6e6e6;
   grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 2fr;
   border-radius: 1rem 1rem 0 0;
-  outline: 0.1rem solid #ffffff11;
+  /*outline: 0.1rem solid #ffffff11;*/
   background-color: #04040488;
+  /*box-shadow: 0 0 1rem 0 #ffffff22;*/
 `;
 
 const PlaceHolderContainer = styled.div`
@@ -109,8 +111,7 @@ const SpecsContainer = styled.div`
   width: 15rem;
   border-radius: 0.3rem;
   /*background: #1c1c1c;
-    outline: 0.1rem solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 1rem 0 #ffffff22;*/
+    outline: 0.1rem solid rgba(255, 255, 255, 0.3);*/
 `;
 
 const Specs = styled.div`
@@ -131,21 +132,30 @@ const ItemDetail = () => {
   const dispatch = useDispatch();
 
   const [apiDataState, setApiDataState] = useState([]);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     fetchPhoneDetail(itemId.id).then((item) => {
       setApiDataState(item);
     });
   }, [itemId.id]);
-  ``;
+
+  if (!apiDataState.price) {
+    return <></>;
+  }
 
   async function addToCart() {
     apiDataState.quantity = apiDataState.quantity + 1;
     console.log("*************", apiDataState);
     dispatch(addCartInfo(apiDataState));
+
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
   }
 
-  console.log(apiDataState && apiDataState.brand, "apiDataState");
+  console.log(apiDataState, "apiDataState");
   return apiDataState && apiDataState ? (
     <MainContainer>
       <Navbar />
@@ -161,26 +171,26 @@ const ItemDetail = () => {
             <SpecsContainer>
               <Specs>
                 <span>
-                  <b>•&emsp;Display Size</b>
+                  <b style={{ color: "#a6a6a6" }}>•&emsp;Display Size</b>
                 </span>{" "}
                 <span>{apiDataState.display_size_inches} inches</span>
               </Specs>
 
               <Specs>
                 <span>
-                  <b>•&emsp;RAM</b>
+                  <b style={{ color: "#a6a6a6" }}>•&emsp;RAM</b>
                 </span>{" "}
                 <span>{apiDataState.ram_gb} GB</span>
               </Specs>
               <Specs>
                 <span>
-                  <b>•&emsp;Storage</b>
+                  <b style={{ color: "#a6a6a6" }}>•&emsp;Storage</b>
                 </span>{" "}
                 <span>{apiDataState.storage_gb} GB</span>
               </Specs>
               <Specs>
                 <span>
-                  <b>•&emsp;Release Year</b>
+                  <b style={{ color: "#a6a6a6" }}>•&emsp;Release Year</b>
                 </span>{" "}
                 <span>{apiDataState.release_year}</span>
               </Specs>
@@ -190,76 +200,31 @@ const ItemDetail = () => {
         <PriceHeading>
           <div>
             <div style={{ margin: "1rem 0" }}> {apiDataState.star_rating}</div>
-            <div>${apiDataState.price_usd}&nbsp;</div>
+            <div>₹{apiDataState.price.inr}&nbsp;</div>
           </div>
           <div>
             <BtnAddToCart onClick={() => addToCart()}>Add to Cart</BtnAddToCart>
           </div>
         </PriceHeading>
         <PhoneDescriptionContainer>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae,
-            enim, fugit hic maiores neque obcaecati quaerat sed tenetur ut
-            velit, voluptate. A atque blanditiis cum deserunt dignissimos dolore
-            eius et fugit incidunt ipsam iste itaque libero minima molestiae
-            necessitatibus officia perferendis possimus quidem quis quo,
-            recusandae rem sed tempore temporibus veniam vero vitae voluptatem,
-            voluptates voluptatibus voluptatum? Alias corporis cum eius eligendi
-            excepturi facere harum, ipsa itaque magni maiores neque officia,
-            quae quaerat quisquam tempore. Beatae dolorum laboriosam magni modi
-            molestias placeat rem repellat ullam voluptas voluptatum! Ad
-            architecto, consectetur consequatur corporis cupiditate ea excepturi
-            labore, laboriosam nulla odit possimus quidem repellat similique
-            suscipit, veritatis? Accusantium, aspernatur autem consequuntur
-            dicta dignissimos error expedita fugit harum, labore laudantium
-            natus non nulla quae quisquam repellendus. Asperiores blanditiis
-            commodi deleniti doloribus eligendi expedita ipsam perferendis porro
-            praesentium quae, reprehenderit, temporibus. Ab architecto dolor
-            nemo, neque omnis quisquam ullam voluptates! Adipisci animi eaque
-            facere maiores nemo nobis pariatur quo! A ab aliquid deleniti
-            deserunt dicta dolore error facere in ipsum itaque labore mollitia
-            nam nostrum numquam placeat, quo rem repudiandae sequi. At cum,
-            deserunt dolorem est eum explicabo incidunt iste minus mollitia
-            nostrum omnis provident quasi repellendus soluta, sunt voluptates
-            voluptatum. Accusamus amet architecto asperiores autem cumque
-            doloremque, ducimus eius eligendi error eum explicabo fuga
-            laboriosam laborum magni minus neque nostrum nulla optio,
-            perferendis sed sint suscipit ut veniam. Ad adipisci consequuntur
-            corporis dolor doloremque id illum, maxime provident, quod sint
-            suscipit tempore. Ab adipisci, blanditiis consequuntur cupiditate
-            delectus deleniti deserunt dolore ducimus earum eos error esse est
-            iste libero maiores modi necessitatibus nemo, nihil obcaecati
-            perferendis placeat praesentium quidem voluptas. Distinctio dolore
-            dolorum iure laborum quos! A, ad asperiores at consectetur
-            consequuntur debitis delectus ducimus ex facere facilis hic in iste
-            laboriosam laudantium molestiae nesciunt officiis perferendis quia
-            reiciendis saepe sapiente similique sint suscipit tempore voluptas.
-            Ab ad assumenda consequatur corporis deleniti distinctio dolorem
-            eaque illo illum iusto labore maiores natus nulla officiis pariatur
-            quidem quisquam repellat rerum sit, voluptatem. A ab animi
-            aspernatur cupiditate distinctio, dolorem dolores harum itaque iure
-            iusto laboriosam magnam necessitatibus nulla possimus provident
-            quasi quidem quisquam recusandae repellat, sint sunt suscipit
-            tenetur unde. Distinctio eum ipsam pariatur! Accusamus alias amet
-            asperiores aspernatur autem, consectetur consequatur culpa dolorum
-            eligendi ex exercitationem explicabo facere inventore iure magnam
-            minima molestiae necessitatibus non nostrum officia optio
-            perferendis quam ratione sed sit! Alias commodi debitis dolorem
-            dolorum eius esse facere ipsa, laudantium ratione sequi tenetur
-            voluptatem. Accusantium dolorem excepturi fuga ipsam minima
-            molestiae, praesentium provident quas quod sunt! Alias aliquam
-            assumenda at blanditiis dolore dolorem, ea esse, impedit iste itaque
-            labore laudantium minima mollitia nam nihil odit officia omnis
-            pariatur placeat porro praesentium quae qui, reiciendis
-            reprehenderit soluta vel vero voluptatem. Aut culpa cum deserunt ea
-            eius eum eveniet fugit inventore itaque labore libero magnam magni
-            maiores mollitia nemo nisi perferendis, perspiciatis porro qui
-            quidem quisquam rem reprehenderit sed sequi soluta ullam vitae?
-            Harum, quaerat sapiente. Amet asperiores aut doloremque ducimus
-            error ex in ipsa laborum, quasi quia ratione sapiente unde vero.
+          <p style={{ fontSize: "1rem", letterSpacing: "0.1rem" }}>
+            {apiDataState.description}
           </p>
         </PhoneDescriptionContainer>
       </PhoneLayoutContainer>
+      {showAlert && (
+        <Alert
+          style={{
+            position: "fixed",
+            right: "5%",
+            bottom: "5%",
+          }}
+          icon={<CheckIcon fontSize="inherit" />}
+          severity="success"
+        >
+          Item added to cart.
+        </Alert>
+      )}
     </MainContainer>
   ) : null;
 };

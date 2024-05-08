@@ -37,7 +37,7 @@ function App() {
       element: <SignUp />,
     },
     {
-      path: "/itemdetail/:brand/:model",
+      path: "/itemdetail/:id",
       element: <ItemDetail />,
     },
   ]);

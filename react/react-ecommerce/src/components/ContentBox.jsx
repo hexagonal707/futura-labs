@@ -98,7 +98,7 @@ const ContentBox = () => {
 
   console.log(phoneApiDataState);
 
-  return phoneApiDataState && phoneApiDataState
+  return phoneApiDataState
     ? phoneApiDataState.map((li) => {
         return (
           <MainBox key={li.id}>
@@ -114,7 +114,7 @@ const ContentBox = () => {
                       textDecoration: "none",
                       color: "white",
                     }}
-                    to={`/itemdetail/${li.brand}/${li.model}`}
+                    to={`/itemdetail/${li.id}`}
                   >{`${li.brand} ${li.model}`}</Link>
                 </PhoneNameHeading>
                 <SpecsContainer>
@@ -151,9 +151,7 @@ const ContentBox = () => {
                 <div style={{ margin: "1rem 0" }}> {li.star_rating}</div>
                 <div>${li.price_usd}&nbsp;</div>
               </div>
-              <div>
-                <BtnAddToCart>Add to Cart</BtnAddToCart>
-              </div>
+              <div>{/*<BtnAddToCart>Add to Cart</BtnAddToCart>*/}</div>
             </PriceHeading>
           </MainBox>
         );

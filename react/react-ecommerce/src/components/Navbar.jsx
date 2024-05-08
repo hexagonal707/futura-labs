@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { PersonOutlined, ShoppingBagOutlined } from "@mui/icons-material/";
+import { useSelector } from "react-redux";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -56,20 +57,28 @@ const CartCounter = styled.div`
   right: -40%;
   align-content: center;
   font-weight: bold;
-  outline: 0.12rem solid rgba(251, 170, 0, 1);
   border-radius: 2rem;
   height: max-content;
   width: max-content;
   padding: 0.1rem 0.4rem;
   font-size: 0.6rem;
-  color: #e1e1e1;
-  background: rgb(96, 86, 58);
+  color: black;
+  background: #fbaa00ff;
 `;
 const CartContainer = styled.div`
   position: relative;
 `;
 
 const Navbar = () => {
+  const CartData = useSelector((state) => state.phoneApiData.cartInfo);
+  const totalQuantity = CartData.map((item) => {
+    return item.quantity;
+  });
+
+  console.log(
+    totalQuantity,
+    "/*///////////////////////////////////////////////////////",
+  );
   return (
     <NavbarContainer>
       <NavbarList>
@@ -81,7 +90,7 @@ const Navbar = () => {
         <NavbarItem>
           <NavbarLink to={"/cart"}>
             <CartContainer>
-              <CartCounter>10</CartCounter>
+              <CartCounter>{CartData && CartData.length}</CartCounter>
               <NavbarIcon>
                 <ShoppingBagOutlined />
               </NavbarIcon>

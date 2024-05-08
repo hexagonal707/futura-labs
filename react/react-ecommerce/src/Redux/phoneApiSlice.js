@@ -8,18 +8,18 @@ const data = createSlice({
   },
   reducers: {
     addPhoneInfo: (state, action) => {
-      console.log("action value", action);
       state.phoneInfo.push(action.payload);
     },
     addCartInfo: (state, action) => {
-      console.log("action value", action.payload.id);
-      const cartItemData = state.cartInfo.some((li) => {
-        return li.id === action.payload.id;
-      });
-      !cartItemData && state.cartInfo.push(action.payload);
-      console.log("-------------------", cartItemData);
+      const existingItem = state.cartInfo.find(
+        (item) => item.id === action.payload.id,
+      );
 
-      state.cartInfo.push(action.payload);
+      if (!existingItem) {
+        state.cartInfo.push({ ...action.payload, quantity: 1 });
+      } else {
+        existingItem.quantity++;
+      }
     },
   },
 });

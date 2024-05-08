@@ -71,14 +71,6 @@ const CartContainer = styled.div`
 
 const Navbar = () => {
   const CartData = useSelector((state) => state.phoneApiData.cartInfo);
-  const totalQuantity = CartData.map((item) => {
-    return item.quantity;
-  });
-
-  console.log(
-    totalQuantity,
-    "/*///////////////////////////////////////////////////////",
-  );
   return (
     <NavbarContainer>
       <NavbarList>

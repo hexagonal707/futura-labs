@@ -9,7 +9,10 @@ const Cart = () => {
       <div>
         {CartData.map((li) => (
           <>
-            <h1>{li.brand}</h1>
+            <h1>
+              {li.brand} {li.model}
+            </h1>{" "}
+            <span>quantity: {li.quantity}</span>
           </>
         ))}
       </div>

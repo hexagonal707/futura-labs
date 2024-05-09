@@ -39,21 +39,6 @@ const BtnAddToCart = styled.button`
     font-weight: bold;
   }
 `;
-/*const BtnInCart = styled.button`
-  border: 0.1rem solid #595959;
-  background: #ffc142;
-  color: black;
-  font-weight: bold;
-  width: max-content;
-  backdrop-filter: blur(2rem);
-  font-size: 1rem;
-  padding: 0.7rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.2rem 0 #30303044;
-
-  &:hover {
-  }
-`;*/
 
 const PhoneLayoutContainer = styled.div`
   padding: 2rem min(10vw, 15rem);
@@ -64,7 +49,7 @@ const PhoneLayoutContainer = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
   border-radius: 1rem 1rem 0 0;
   /*outline: 0.1rem solid #ffffff11;*/
-  background-color: #04040488;
+  background-color: #0c0c0c;
   /*box-shadow: 0 0 1rem 0 #ffffff22;*/
 `;
 
@@ -222,7 +207,11 @@ const ItemDetail = () => {
           icon={<CheckIcon fontSize="inherit" />}
           severity="success"
         >
-          Item added to cart.
+          {apiDataState.quantity > 1 ? (
+            <span>Item added to cart({apiDataState.quantity}).</span>
+          ) : (
+            <span>Item added to cart.</span>
+          )}
         </Alert>
       )}
     </MainContainer>

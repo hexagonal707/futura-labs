@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchPhoneDetail } from "../../api.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCartInfo } from "../../Redux/phoneApiSlice.js";
 import Navbar from "../../components/Navbar.jsx";
 import { Alert } from "@mui/material";
@@ -38,6 +38,19 @@ const BtnAddToCart = styled.button`
     color: black;
     font-weight: bold;
   }
+`;
+
+const BtnInCart = styled.button`
+  border: none;
+  background: #ffc142;
+  color: black;
+  width: max-content;
+  backdrop-filter: blur(2rem);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.6rem 0 #ffc14266;
 `;
 
 const PhoneLayoutContainer = styled.div`
@@ -96,7 +109,7 @@ const SpecsContainer = styled.div`
   width: 15rem;
   border-radius: 0.3rem;
   /*background: #1c1c1c;
-    outline: 0.1rem solid rgba(255, 255, 255, 0.3);*/
+          outline: 0.1rem solid rgba(255, 255, 255, 0.3);*/
 `;
 
 const Specs = styled.div`
@@ -111,13 +124,25 @@ const PhoneDescriptionContainer = styled.div`
   text-align: justify;
 `;
 
+const AlertWindow = styled(Alert)`
+  height: max-content;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+`;
+
 const ItemDetail = () => {
-  const itemId = useParams();
-  console.log(itemId.id, "itemId");
   const dispatch = useDispatch();
+  const itemId = useParams();
+  const cartData = useSelector((state) => state.phoneApiData.cartInfo);
+  const findData = cartData.some((li) => {
+    console.log(li.brand, "id:", li.id, "********");
+    return li.id === parseInt(itemId.id);
+  });
+  console.log("FindData: ", findData);
 
   const [apiDataState, setApiDataState] = useState([]);
-  const [showAlert, setShowAlert] = useState(false);
+  const [alertState, setAlertState] = useState(false);
 
   useEffect(() => {
     fetchPhoneDetail(itemId.id).then((item) => {
@@ -125,22 +150,15 @@ const ItemDetail = () => {
     });
   }, [itemId.id]);
 
-  if (!apiDataState.price) {
-    return <></>;
-  }
-
-  async function addToCart() {
-    apiDataState.quantity = apiDataState.quantity + 1;
+  function addToCart() {
+    apiDataState.in_cart = true;
     console.log("*************", apiDataState);
     dispatch(addCartInfo(apiDataState));
-
-    setShowAlert(true);
+    setAlertState(true);
     setTimeout(() => {
-      setShowAlert(false);
-    }, 3000);
+      setAlertState(false);
+    }, 2500);
   }
-
-  console.log(apiDataState, "apiDataState");
   return apiDataState && apiDataState ? (
     <MainContainer>
       <Navbar />
@@ -185,10 +203,16 @@ const ItemDetail = () => {
         <PriceHeading>
           <div>
             <div style={{ margin: "1rem 0" }}> {apiDataState.star_rating}</div>
-            <div>₹{apiDataState.price.inr}&nbsp;</div>
+            <div>₹{apiDataState.price && apiDataState.price.inr}&nbsp;</div>
           </div>
           <div>
-            <BtnAddToCart onClick={() => addToCart()}>Add to Cart</BtnAddToCart>
+            {findData === true ? (
+              <BtnInCart>In Cart</BtnInCart>
+            ) : (
+              <BtnAddToCart onClick={() => addToCart()}>
+                Add to Cart
+              </BtnAddToCart>
+            )}
           </div>
         </PriceHeading>
         <PhoneDescriptionContainer>
@@ -197,22 +221,10 @@ const ItemDetail = () => {
           </p>
         </PhoneDescriptionContainer>
       </PhoneLayoutContainer>
-      {showAlert && (
-        <Alert
-          style={{
-            position: "fixed",
-            right: "5%",
-            bottom: "5%",
-          }}
-          icon={<CheckIcon fontSize="inherit" />}
-          severity="success"
-        >
-          {apiDataState.quantity > 1 ? (
-            <span>Item added to cart({apiDataState.quantity}).</span>
-          ) : (
-            <span>Item added to cart.</span>
-          )}
-        </Alert>
+      {alertState && (
+        <AlertWindow icon={<CheckIcon fontSize="inherit" />} severity="success">
+          <span>Item added to cart.</span>
+        </AlertWindow>
       )}
     </MainContainer>
   ) : null;

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { PersonOutlined, ShoppingBagOutlined } from "@mui/icons-material/";
+import {
+  HomeOutlined,
+  PersonOutlined,
+  ShoppingBagOutlined,
+} from "@mui/icons-material/";
 import { useSelector } from "react-redux";
 
 const NavbarContainer = styled.div`
@@ -74,6 +78,11 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavbarList>
+        <NavbarItem>
+          <NavbarLink to={"/"}>
+            <HomeOutlined style={{ scale: "110%" }} />
+          </NavbarLink>
+        </NavbarItem>
         <NavbarItem>
           <NavbarLink to={"/login"}>
             <PersonOutlined style={{ scale: "110%" }} />

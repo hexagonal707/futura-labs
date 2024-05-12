@@ -23,11 +23,11 @@ const BtnAddToCart = styled.button`
   border: 0.1rem solid #595959;
   background: #0c0c0c;
   color: #ffffff;
-  width: max-content;
+  height: 3rem;
+  width: 8rem;
   backdrop-filter: blur(2rem);
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.7rem 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.2rem 0 #30303044;
 
@@ -36,19 +36,18 @@ const BtnAddToCart = styled.button`
     background: #ffc142;
     box-shadow: 0 0 0.6rem 0 #ffc14266;
     color: black;
-    font-weight: bold;
   }
 `;
 
 const BtnInCart = styled.button`
-  border: none;
+  border: 0.1rem solid #595959;
   background: #ffc142;
   color: black;
-  width: max-content;
+  height: 3rem;
+  width: 8rem;
   backdrop-filter: blur(2rem);
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.7rem 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.6rem 0 #ffc14266;
 `;
@@ -61,9 +60,7 @@ const PhoneLayoutContainer = styled.div`
   color: #e6e6e6;
   grid-template-columns: 1fr 3fr 1fr;
   border-radius: 1rem 1rem 0 0;
-  /*outline: 0.1rem solid #ffffff11;*/
   background-color: #0c0c0c;
-  /*box-shadow: 0 0 1rem 0 #ffffff22;*/
 `;
 
 const PlaceHolderContainer = styled.div`
@@ -108,8 +105,6 @@ const SpecsContainer = styled.div`
   padding: 1rem;
   width: 15rem;
   border-radius: 0.3rem;
-  /*background: #1c1c1c;
-          outline: 0.1rem solid rgba(255, 255, 255, 0.3);*/
 `;
 
 const Specs = styled.div`
@@ -136,10 +131,8 @@ const ItemDetail = () => {
   const itemId = useParams();
   const cartData = useSelector((state) => state.phoneApiData.cartInfo);
   const findData = cartData.some((li) => {
-    console.log(li.brand, "id:", li.id, "********");
     return li.id === parseInt(itemId.id);
   });
-  console.log("FindData: ", findData);
 
   const [apiDataState, setApiDataState] = useState([]);
   const [alertState, setAlertState] = useState(false);
@@ -148,7 +141,7 @@ const ItemDetail = () => {
     fetchPhoneDetail(itemId.id).then((item) => {
       setApiDataState(item);
     });
-  }, [itemId.id]);
+  }, [itemId]);
 
   function addToCart() {
     apiDataState.in_cart = true;
@@ -159,6 +152,7 @@ const ItemDetail = () => {
       setAlertState(false);
     }, 2500);
   }
+
   return apiDataState && apiDataState ? (
     <MainContainer>
       <Navbar />

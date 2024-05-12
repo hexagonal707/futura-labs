@@ -66,27 +66,6 @@ const Specs = styled.div`
   justify-content: space-between;
 `;
 
-/*const BtnAddToCart = styled.button`
-  border: 0.1rem solid #595959;
-  background: #0c0c0c;
-  color: #ffffff;
-  width: max-content;
-  backdrop-filter: blur(2rem);
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.7rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0.2rem 0 #30303044;
-
-  &:hover {
-    transition: 100ms ease-in-out;
-    background: #ffc142;
-    box-shadow: 0 0 0.6rem 0 #ffc14266;
-    color: black;
-    font-weight: bold;
-  }
-`;*/
-
 const ContentBox = () => {
   const [phoneApiDataState, setPhoneApiDataState] = useState([]);
 
@@ -101,58 +80,61 @@ const ContentBox = () => {
   return phoneApiDataState
     ? phoneApiDataState.map((li) => {
         return (
-          <MainBox key={li.id}>
-            <PlaceHolderContainer>
-              <PlaceHolderImage src={li.img} alt="" />
-            </PlaceHolderContainer>
+          <Link
+            key={li.id}
+            style={{
+              textDecoration: "none",
+              color: "white",
+            }}
+            to={`/itemdetail/${li.id}`}
+          >
+            <MainBox key={li.id}>
+              <PlaceHolderContainer>
+                <PlaceHolderImage src={li.img} alt="" />
+              </PlaceHolderContainer>
 
-            <PhoneDetailContainer>
-              <div>
-                <PhoneNameHeading>
-                  <Link
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                    }}
-                    to={`/itemdetail/${li.id}`}
-                  >{`${li.brand} ${li.model}`}</Link>
-                </PhoneNameHeading>
-                <SpecsContainer>
-                  <Specs>
-                    <span>
-                      <b>Display Size</b>
-                    </span>{" "}
-                    <span>{li.display_size_inches} inches</span>
-                  </Specs>
+              <PhoneDetailContainer>
+                <div>
+                  <PhoneNameHeading>
+                    {`${li.brand} ${li.model}`}
+                  </PhoneNameHeading>
+                  <SpecsContainer>
+                    <Specs>
+                      <span>
+                        <b>Display Size</b>
+                      </span>{" "}
+                      <span>{li.display_size_inches} inches</span>
+                    </Specs>
 
-                  <Specs>
-                    <span>
-                      <b>RAM</b>
-                    </span>{" "}
-                    <span>{li.ram_gb} GB</span>
-                  </Specs>
-                  <Specs>
-                    <span>
-                      <b>Storage</b>
-                    </span>{" "}
-                    <span>{li.storage_gb} GB</span>
-                  </Specs>
-                  <Specs>
-                    <span>
-                      <b>Release Year</b>
-                    </span>{" "}
-                    <span>{li.release_year}</span>
-                  </Specs>
-                </SpecsContainer>
-              </div>
-            </PhoneDetailContainer>
-            <PriceHeading>
-              <div>
-                <div style={{ margin: "1rem 0" }}>{li.star_rating}</div>
-                <div>₹{li.price.inr}&nbsp;</div>
-              </div>
-            </PriceHeading>
-          </MainBox>
+                    <Specs>
+                      <span>
+                        <b>RAM</b>
+                      </span>{" "}
+                      <span>{li.ram_gb} GB</span>
+                    </Specs>
+                    <Specs>
+                      <span>
+                        <b>Storage</b>
+                      </span>{" "}
+                      <span>{li.storage_gb} GB</span>
+                    </Specs>
+                    <Specs>
+                      <span>
+                        <b>Release Year</b>
+                      </span>{" "}
+                      <span>{li.release_year}</span>
+                    </Specs>
+                  </SpecsContainer>
+                </div>
+              </PhoneDetailContainer>
+              <PriceHeading>
+                <div>
+                  <div style={{ margin: "1rem 0" }}>{li.star_rating}</div>
+                  <div>₹{li.price.inr}&nbsp;</div>
+                </div>
+              </PriceHeading>
+            </MainBox>
+          </Link>
         );
       })
     : null;

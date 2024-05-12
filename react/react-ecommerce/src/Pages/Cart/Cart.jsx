@@ -20,12 +20,14 @@ const MainContainer = styled.div`
 `;
 const CartListContainer = styled.div`
   display: flex;
-  padding: 2rem;
+  gap: 0.4rem;
   flex-direction: column;
   border-radius: 1rem 1rem 0 0;
+  border-top: 0.1rem solid #ffc14266;
+  border-left: 0.1rem solid #ffc14266;
+  border-right: 0.1rem solid #ffc14266;
   background-color: #0c0c0c;
-  gap: 4rem;
-  height: 100vh;
+  min-height: 100vh;
 `;
 
 const PhoneLayoutContainer = styled.div`
@@ -35,11 +37,13 @@ const PhoneLayoutContainer = styled.div`
   padding: 2rem;
   grid-gap: 2rem;
   color: #e6e6e6;
-  border-radius: 1rem;
-  background-color: #00a5ff19;
-  outline: 0.1rem solid #00a5ff66;
-  /*background-color: #ffe8000f;
-  outline: 0.1rem solid #ffc14266;*/
+  border-top: 0.1rem solid #ffc14266;
+  border-bottom: 0.1rem solid #ffc14266;
+  /*border-radius: 1rem;
+      background-color: #00a5ff19;
+      outline: 0.1rem solid #00a5ff66;*/
+  background-color: #ffe8000f;
+  /*outline: 0.1rem solid #ffc14266;*/
 `;
 
 const PhoneImgContainer = styled.div`
@@ -64,6 +68,7 @@ const PhoneDetailContainer = styled.div`
 const PriceHeading = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: end;
   justify-content: space-between;
   text-align: right;
   font-size: 1.5rem;
@@ -101,26 +106,45 @@ const BtnQuantity = styled.div`
   height: max-content;
   align-items: center;
   background: #151515;
-  border-radius: 25rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid #ffc14266;
 `;
 
 const BtnMinus = styled.button`
-  height: 1rem;
-  border: none;
-  width: 1rem;
+  height: 1.2rem;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0.1rem solid #ffc14266;
+  width: 1.2rem;
   text-align: center;
   font-weight: bold;
-  border-radius: 25rem;
+  color: white;
+  border-radius: 0.1rem 0 0 0.1rem;
+  background: #ffc14222;
   /*border-radius: 0.2rem 0 0 0.2rem;*/
 `;
 const BtnPlus = styled.button`
-  height: 1rem;
-  width: 1rem;
-  border: none;
+  height: 1.2rem;
+  border-left: 0.1rem solid #ffc14266;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
+  width: 1.2rem;
   text-align: center;
   font-weight: bold;
-  border-radius: 25rem;
+  color: white;
+  border-radius: 0 0.1rem 0.1rem 0;
+  background: #ffc14222;
   /*border-radius: 0 0.2rem 0.2rem 0;*/
+`;
+
+const BtnRemove = styled.button`
+  border: none;
+  width: max-content;
+  padding: 0.8rem;
+  background: #ffc142ff;
+  border-radius: 1rem;
 `;
 
 const TotalPriceContainer = styled.div`
@@ -130,39 +154,35 @@ const TotalPriceContainer = styled.div`
   flex-direction: column;
   height: min(20rem);
   width: 35%;
+  color: black;
   border-radius: 1rem;
-  background-color: #0c0c0c;
-  outline: 0.1rem solid #ffc14266;
+  background: #ffc142ff;
+  border: 0.4rem solid #00000055;
 `;
 
 const ItemPriceContainer = styled.div`
   display: flex;
-  font-weight: bold;
+  font-weight: lighter;
   padding: 0.5rem 0;
   width: 100%;
   justify-content: space-between;
 `;
-const BtnRemove = styled.button`
-  border: none;
-  background: white;
-  border-radius: 1rem;
-`;
 
 const Cart = () => {
   const CartData = useSelector((state) => state.phoneApiData.cartInfo);
-  /*const [alertState, setAlertState] = useState(false);*/
   console.log(CartData);
-  const price = CartData.map((li) => {
-    return li.price.inr * li.quantity;
-  });
 
-  console.log("price", price);
+  function totalPrice() {
+    const price = CartData.map((li) => {
+      return li.price.inr * li.quantity;
+    });
 
-  const totalPrice = price.reduce((a, b) => {
-    return a + b;
-  });
+    console.log("price", price);
 
-  console.log("totalprice", totalPrice);
+    return price.reduce((a, b) => {
+      return a + b;
+    });
+  }
 
   const dispatch = useDispatch();
 
@@ -181,6 +201,16 @@ const Cart = () => {
   return CartData && CartData.length > 0 ? (
     <MainContainer>
       <CartListContainer>
+        <div
+          style={{
+            fontSize: "2.4rem",
+            fontWeight: "lighter",
+            textAlign: "center",
+            margin: "1rem",
+          }}
+        >
+          Cart
+        </div>
         {CartData !== [] &&
           CartData.map((item) => (
             <PhoneLayoutContainer key={item.id}>
@@ -267,7 +297,7 @@ const Cart = () => {
           }}
         >
           <div>Total</div>
-          <div>₹{totalPrice}</div>
+          <div>₹{totalPrice()}</div>
         </div>
       </TotalPriceContainer>
     </MainContainer>

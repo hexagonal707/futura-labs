@@ -7,6 +7,7 @@ import Cart from "./Pages/Cart/Cart.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import SignUp from "./Pages/SignUp/SignUp.jsx";
 import ItemDetail from "./Pages/ItemDetail/ItemDetail.jsx";
+import OrderPlaced from "./components/OrderPlaced.jsx";
 
 const AppContext = createContext();
 
@@ -28,6 +29,11 @@ function App() {
       path: "/cart",
       element: <Cart />,
     },
+    {
+      path: "/order",
+      element: <OrderPlaced />,
+    },
+
     {
       path: "/login",
       element: <Login />,

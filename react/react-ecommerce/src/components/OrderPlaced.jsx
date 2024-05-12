@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ShoppingBagOutlined } from "@mui/icons-material/";
 import Navbar from "./Navbar.jsx";
+import CheckIcon from "@mui/icons-material/Check";
 
 const MainContainer = styled.div`
   display: flex;
@@ -19,22 +19,20 @@ const Heading = styled.div`
   font-weight: normal;
 `;
 
-const ShoppingBag = styled(ShoppingBagOutlined)`
+const TickIcon = styled(CheckIcon)`
   text-shadow: 0 0 0.2rem #ffffffaa;
   scale: 400%;
   color: #ffc142;
   transform: translate(-25%, -10%);
 `;
 
-const CartEmpty = () => {
+const OrderPlaced = () => {
   return (
-    <>
+    <MainContainer>
       <Navbar />
-      <MainContainer>
-        <Heading>{<ShoppingBag />} is empty ¯\_(ツ)_/¯</Heading>
-      </MainContainer>
-    </>
+      <Heading>{<TickIcon />} Your order is placed (⌐■_■)</Heading>
+    </MainContainer>
   );
 };
 
-export default CartEmpty;
+export default OrderPlaced;

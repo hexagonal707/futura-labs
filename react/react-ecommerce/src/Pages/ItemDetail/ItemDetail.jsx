@@ -16,6 +16,7 @@ const MainContainer = styled.div`
   height: max(100%);
   width: 100%;
   background-color: #171717;
+
   color: white;
 `;
 
@@ -36,6 +37,7 @@ const BtnAddToCart = styled.button`
     background: #ffc142;
     box-shadow: 0 0 0.6rem 0 #ffc14266;
     color: black;
+    cursor: pointer;
   }
 `;
 
@@ -61,6 +63,7 @@ const PhoneLayoutContainer = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
   border-radius: 1rem 1rem 0 0;
   background-color: #0c0c0c;
+  border: 0.1rem solid #ffc14266;
 `;
 
 const PlaceHolderContainer = styled.div`

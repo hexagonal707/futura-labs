@@ -3,16 +3,21 @@ import { useEffect, useState } from "react";
 import { fetchPhoneApi } from "../api.js";
 import { Link } from "react-router-dom";
 
-const MainBox = styled.div`
+const MainContainer = styled.div`
   display: grid;
   height: 25rem;
   grid-gap: 2rem;
   color: #e6e6e6;
   padding: 2rem;
   grid-template-columns: 1fr 3fr 1fr;
-  border-radius: 1rem;
-  outline: 0.1rem solid #ffffff11;
+  border-radius: 0.4rem;
+  border: 0.1rem solid #ffc14266;
   background-color: #04040488;
+
+  &:hover {
+    background-color: #ffc1421e;
+    transition: 150ms ease-in-out;
+  }
 `;
 
 const PlaceHolderContainer = styled.div`
@@ -56,9 +61,9 @@ const SpecsContainer = styled.div`
   padding: 1rem;
   width: 15rem;
   border-radius: 0.3rem;
-  background: #1c1c1c;
+  /*background: #1c1c1c;
   outline: 0.1rem solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 1rem 0 #ffffff22;
+  box-shadow: 0 0 1rem 0 #ffffff22;*/
 `;
 
 const Specs = styled.div`
@@ -88,7 +93,7 @@ const ContentBox = () => {
             }}
             to={`/itemdetail/${li.id}`}
           >
-            <MainBox key={li.id}>
+            <MainContainer key={li.id}>
               <PlaceHolderContainer>
                 <PlaceHolderImage src={li.img} alt="" />
               </PlaceHolderContainer>
@@ -133,7 +138,7 @@ const ContentBox = () => {
                   <div>₹{li.price.inr}&nbsp;</div>
                 </div>
               </PriceHeading>
-            </MainBox>
+            </MainContainer>
           </Link>
         );
       })

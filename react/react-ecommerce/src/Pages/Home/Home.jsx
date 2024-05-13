@@ -1,4 +1,4 @@
-import ContentBox from "../../Components/ContentBox.jsx";
+import ContentContainer from "../../Components/ContentContainer.jsx";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
@@ -25,7 +25,7 @@ const Home = () => {
       <MainContainer>
         <HomeHeading></HomeHeading>
         <PhoneLayoutContainer>
-          <ContentBox />
+          <ContentContainer />
         </PhoneLayoutContainer>
       </MainContainer>
     </>

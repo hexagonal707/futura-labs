@@ -71,7 +71,7 @@ const Specs = styled.div`
   justify-content: space-between;
 `;
 
-const ContentBox = () => {
+const ContentContainer = () => {
   const [phoneApiDataState, setPhoneApiDataState] = useState([]);
 
   useEffect(() => {
@@ -145,4 +145,4 @@ const ContentBox = () => {
     : null;
 };
 
-export default ContentBox;
+export default ContentContainer;

@@ -8,7 +8,7 @@ export const fetchPhoneApi = async () => {
 
     console.log(apiData);
 
-    return apiData;
+    return apiData.data;
   } catch (e) {
     console.log(e);
   }

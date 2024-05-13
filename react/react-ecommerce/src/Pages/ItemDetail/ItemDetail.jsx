@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchPhoneDetail } from "../../api.js";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartInfo } from "../../Redux/phoneApiSlice.js";
 import { Alert } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
+import { fetchPhoneDetail } from "../../api.js";
 
 const MainContainer = styled.div`
   display: flex;
@@ -136,15 +136,13 @@ const ItemDetail = () => {
     return li.id === parseInt(itemId.id);
   });
 
-  const [apiDataState, setApiDataState] = useState([]);
   const [alertState, setAlertState] = useState(false);
-
+  const [apiDataState, setApiDataState] = useState([]);
   useEffect(() => {
     fetchPhoneDetail(itemId.id).then((item) => {
       setApiDataState(item);
     });
   }, [itemId]);
-
   function addToCart() {
     apiDataState.in_cart = true;
     console.log("*************", apiDataState);

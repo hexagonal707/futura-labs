@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
 import { fetchPhoneApi } from "../api.js";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 const MainContainer = styled.div`
   display: grid;
@@ -72,18 +72,21 @@ const Specs = styled.div`
 `;
 
 const ContentContainer = () => {
-  const [phoneApiDataState, setPhoneApiDataState] = useState([]);
+  const {
+    status,
+    error,
+    data: phoneApiData,
+  } = useQuery({
+    queryKey: ["phoneApi"],
+    queryFn: fetchPhoneApi,
+  });
 
-  useEffect(() => {
-    fetchPhoneApi().then((result) => {
-      return setPhoneApiDataState(result.data);
-    });
-  }, []);
+  if (status === "loading") return <h1>Loading...</h1>;
+  if (status === "error") return <h1>{JSON.stringify(error)}</h1>;
 
-  console.log(phoneApiDataState);
-
-  return phoneApiDataState
-    ? phoneApiDataState.map((li) => {
+  console.log(phoneApiData);
+  return phoneApiData
+    ? phoneApiData.map((li) => {
         return (
           <Link
             key={li.id}

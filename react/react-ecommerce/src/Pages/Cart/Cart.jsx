@@ -251,8 +251,6 @@ const Cart = () => {
     dispatch(removeCartItem(item));
   }
 
-  function buyNow() {}
-
   return CartData && CartData.length > 0 ? (
     <>
       <Navbar />
@@ -370,7 +368,7 @@ const Cart = () => {
           </div>
           <div>
             <Link style={{ textDecoration: "none" }} to={"/order"}>
-              <BtnBuyNow onClick={() => buyNow()}>
+              <BtnBuyNow>
                 <ShoppingCartOutlined></ShoppingCartOutlined>
                 <div>Buy Now</div>
               </BtnBuyNow>

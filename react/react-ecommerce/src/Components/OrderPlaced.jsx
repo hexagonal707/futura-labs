@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Navbar from "./Navbar.jsx";
 import CheckIcon from "@mui/icons-material/Check";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -43,7 +42,6 @@ const OrderPlaced = () => {
   }, [dispatch]);
   return (
     <MainContainer>
-      <Navbar />
       <Heading>{<TickIcon />} Your order is placed (⌐■_■)</Heading>
     </MainContainer>
   );

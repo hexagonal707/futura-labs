@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ShoppingBagOutlined } from "@mui/icons-material/";
-import Navbar from "./Navbar.jsx";
 
 const MainContainer = styled.div`
   display: flex;
@@ -29,7 +28,6 @@ const ShoppingBag = styled(ShoppingBagOutlined)`
 const CartEmpty = () => {
   return (
     <>
-      <Navbar />
       <MainContainer>
         <Heading>{<ShoppingBag />} is empty ¯\_(ツ)_/¯</Heading>
       </MainContainer>

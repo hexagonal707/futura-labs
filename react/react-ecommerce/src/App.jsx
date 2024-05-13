@@ -1,58 +1,37 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import Home from "./Pages/Home/Home.jsx";
-import { createContext } from "react";
+import Layout from "./Pages/Layout.jsx";
 import About from "./Pages/About/About.jsx";
-import Contact from "./Pages/Contact/Contact.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
-import Login from "./Pages/Login/Login.jsx";
-import SignUp from "./Pages/SignUp/SignUp.jsx";
 import ItemDetail from "./Pages/ItemDetail/ItemDetail.jsx";
-import OrderPlaced from "./components/OrderPlaced.jsx";
-
-const AppContext = createContext();
+import OrderPlaced from "./Components/OrderPlaced.jsx";
+import SignUp from "./Pages/SignUp/SignUp.jsx";
+import Login from "./Pages/Login/Login.jsx";
+import Contact from "./Pages/Contact/Contact.jsx";
 
 function App() {
-  const pageRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/about",
-      element: <About />,
-    },
-    {
-      path: "/contact",
-      element: <Contact />,
-    },
-    {
-      path: "/cart",
-      element: <Cart />,
-    },
-    {
-      path: "/order",
-      element: <OrderPlaced />,
-    },
-
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/signup",
-      element: <SignUp />,
-    },
-    {
-      path: "/itemdetail/:id",
-      element: <ItemDetail />,
-    },
-  ]);
-
-  return (
-    <AppContext.Provider value={""}>
-      <RouterProvider router={pageRouter} />
-    </AppContext.Provider>
+  const pageRouter = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path={"/"} element={<Layout />}>
+        <Route index element={<Home />}></Route>
+        <Route path={"/about"} element={<About />}></Route>
+        <Route path={"/cart"} element={<Cart />}></Route>
+        <Route path={"/itemdetail/:id"} element={<ItemDetail />}></Route>
+        <Route path={"/order"} element={<OrderPlaced />}></Route>
+        <Route path={"/signup"} element={<SignUp />}></Route>
+        <Route path={"/login"} element={<Login />}></Route>
+        <Route path={"/about"} element={<About />}></Route>
+        <Route path={"/contact"} element={<Contact />}></Route>
+      </Route>,
+    ),
   );
+
+  return <RouterProvider router={pageRouter} />;
 }
 
 export default App;

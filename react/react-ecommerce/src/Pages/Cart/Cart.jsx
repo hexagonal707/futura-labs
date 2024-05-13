@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import CartEmpty from "../../components/CartEmpty.jsx";
+import CartEmpty from "../../Components/CartEmpty.jsx";
 import {
   addCartInfo,
   decQuantity,
@@ -10,7 +10,6 @@ import {
   RemoveShoppingCartOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-import Navbar from "../../components/Navbar.jsx";
 import { Link } from "react-router-dom";
 
 const MainContainer = styled.div`
@@ -253,7 +252,6 @@ const Cart = () => {
 
   return CartData && CartData.length > 0 ? (
     <>
-      <Navbar />
       <MainContainer>
         <CartListContainer>
           <div

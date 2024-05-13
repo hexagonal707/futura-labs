@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { fetchPhoneDetail } from "../../api.js";
 import { useDispatch, useSelector } from "react-redux";
 import { addCartInfo } from "../../Redux/phoneApiSlice.js";
-import Navbar from "../../components/Navbar.jsx";
 import { Alert } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
@@ -158,7 +157,6 @@ const ItemDetail = () => {
 
   return apiDataState && apiDataState ? (
     <MainContainer>
-      <Navbar />
       <PhoneLayoutContainer>
         <PlaceHolderContainer>
           <PlaceHolderImage src={apiDataState.img} alt="" />

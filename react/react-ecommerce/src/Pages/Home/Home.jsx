@@ -1,5 +1,4 @@
-import Navbar from "../../components/Navbar.jsx";
-import ContentBox from "../../components/ContentBox.jsx";
+import ContentBox from "../../Components/ContentBox.jsx";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
@@ -23,7 +22,6 @@ const HomeHeading = styled.h1`
 const Home = () => {
   return (
     <>
-      <Navbar />
       <MainContainer>
         <HomeHeading></HomeHeading>
         <PhoneLayoutContainer>

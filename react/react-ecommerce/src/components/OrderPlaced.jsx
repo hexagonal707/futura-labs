@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Navbar from "./Navbar.jsx";
 import CheckIcon from "@mui/icons-material/Check";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { removeCartInfo } from "../Redux/phoneApiSlice.js";
 
 const MainContainer = styled.div`
   display: flex;
@@ -28,11 +31,16 @@ const TickIcon = styled(CheckIcon)`
 `;
 
 const OrderPlaced = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   setTimeout(() => {
     navigate("/");
   }, 5000);
+
+  useEffect(() => {
+    dispatch(removeCartInfo());
+  }, [dispatch]);
   return (
     <MainContainer>
       <Navbar />

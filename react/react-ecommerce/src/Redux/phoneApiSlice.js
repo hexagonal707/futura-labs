@@ -44,9 +44,17 @@ const data = createSlice({
         console.error("Item not found in cart:", action.payload.id);
       }
     },
+    removeCartInfo: (state) => {
+      state.cartInfo = [];
+    },
   },
 });
 
-export const { addPhoneInfo, addCartInfo, decQuantity, removeCartItem } =
-  data.actions;
+export const {
+  addPhoneInfo,
+  addCartInfo,
+  decQuantity,
+  removeCartItem,
+  removeCartInfo,
+} = data.actions;
 export default data.reducer;

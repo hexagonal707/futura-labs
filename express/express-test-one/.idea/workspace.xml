@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a747ef3e-76fa-4b4b-a970-76dc27148c3a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/express-test-one.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Model/userSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Router/userRouter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/filesystem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/localModules/first.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/localModules/second.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/localModules/third.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/path.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../node/node-test-one/testFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../node/node-test-one/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../node/node-test-one/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +98,7 @@
       <workItem from="1715936982875" duration="2523000" />
       <workItem from="1716029151734" duration="2793000" />
       <workItem from="1716036001835" duration="348000" />
+      <workItem from="1716137159443" duration="9000" />
     </task>
     <servers />
   </component>

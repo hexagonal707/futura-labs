@@ -13,6 +13,7 @@ import OrderPlaced from "./Components/OrderPlaced.jsx";
 import SignUp from "./Pages/SignUp/SignUp.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Contact from "./Pages/Contact/Contact.jsx";
+import UseEff from "./Pages/UseEff.jsx";
 
 function App() {
   const pageRouter = createBrowserRouter(
@@ -27,6 +28,7 @@ function App() {
         <Route path={"/login"} element={<Login />}></Route>
         <Route path={"/about"} element={<About />}></Route>
         <Route path={"/contact"} element={<Contact />}></Route>
+        <Route path={"/useeff"} element={<UseEff />}></Route>
       </Route>,
     ),
   );

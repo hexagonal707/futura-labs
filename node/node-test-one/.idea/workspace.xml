@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1dce16d-ba4f-4f57-b57c-78d6657068e4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/express-test-one.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/Model/userSchema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../express/express-test-one/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filesystem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/localModules/first.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/localModules/second.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/localModules/third.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/path.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c1dce16d-ba4f-4f57-b57c-78d6657068e4" name="Changes" comment="add node_modules to git ignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +93,17 @@
       <workItem from="1715751940493" duration="270000" />
       <workItem from="1715752255257" duration="3649000" />
       <workItem from="1715925510880" duration="147000" />
+      <workItem from="1716137221946" duration="47000" />
     </task>
+    <task id="LOCAL-00001" summary="add node_modules to git ignore">
+      <option name="closed" value="true" />
+      <created>1716137254192</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716137254192</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add node_modules to git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add node_modules to git ignore" />
   </component>
 </project>

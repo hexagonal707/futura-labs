@@ -120,14 +120,14 @@ const BtnLogin = styled.button`
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submit = () => {
     console.log("First name:", firstName);
     console.log("Last name:", lastName);
-    console.log("Username:", username);
+    console.log("Phone:", phone);
     console.log("Email:", email);
     console.log("Password:", password);
   };
@@ -167,10 +167,10 @@ const SignUp = () => {
           </div>
           <div>
             <InputContainer
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username"
-              type="text"
-              id="username"
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Phone"
+              type="number"
+              id="phone"
             />
           </div>
           <div>

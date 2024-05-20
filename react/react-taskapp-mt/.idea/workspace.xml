@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6b698d-4eec-409a-8359-5868b319df5b" name="Changes" comment="update logic">
+      <change afterPath="$PROJECT_DIR$/../react-ecommerce/src/Pages/UseEff.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../express/express-test-one/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../node/node-test-one/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../node/node-test-one/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react-ecommerce/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react-ecommerce/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react-ecommerce/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react-ecommerce/src/main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,6 +127,7 @@
       <workItem from="1714716443694" duration="18329000" />
       <workItem from="1714917099942" duration="67000" />
       <workItem from="1714917195012" duration="14000" />
+      <workItem from="1716185892835" duration="824000" />
     </task>
     <task id="LOCAL-00001" summary="add react-taskapp-mt project">
       <option name="closed" value="true" />

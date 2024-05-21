@@ -21,7 +21,7 @@ const PopUp = () => {
   return (
     <MainContainer>
       <Button></Button>
-      <PopUpContainer></PopUpContainer>
+      <PopUpContainer />
     </MainContainer>
   );
 };

@@ -30,7 +30,7 @@ const TickIcon = styled(CheckIcon)`
 `;
 
 const OrderPlaced = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   setTimeout(() => {

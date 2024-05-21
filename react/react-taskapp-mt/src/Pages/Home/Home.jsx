@@ -1,205 +1,214 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { addTask, setDescription, setTitle } from "../../Redux/taskSlice.js";
+import { Add, CloseOutlined } from "@mui/icons-material";
 import { useState } from "react";
 
 const MainContainer = styled.div`
-  background: #5c5c5c1c;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
   width: 100%;
+  background: #dddddd;
+  height: max(100%);
+`;
+
+const DisplayContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0 2rem 0 2rem;
+  outline: 0.1rem solid #00000020;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+const FormContainer = styled.form`
   position: fixed;
-  height: 100%;
-`;
-
-const TaskLayoutContainer = styled.div`
-  display: flex;
+  z-index: 5;
   flex-direction: column;
+  align-items: end;
+  padding: 1rem 1rem 1rem 1.5rem;
+  width: 25rem;
+  height: 30rem;
+  background: #ffffff;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 0.6rem #00000020;
+  outline: 0.1rem solid #00000044;
 `;
 
-const BtnClosePopUp = styled.button`
-  width: max-content;
-  border-radius: 0.5rem;
-  border: none;
-  background: black;
-  color: white;
-  padding: 0.7rem 2rem;
-`;
-
-const BtnAddTaskTest = styled.button`
-  width: max-content;
-  border-radius: 0.5rem;
-  border: none;
-  background: black;
-  color: white;
-  padding: 0.7rem 2rem;
-`;
-
-const PopUpBlurContainer = styled.div`
-  display: flex;
-  position: absolute;
+const TitleInput = styled.input`
+  display: block;
   width: 100%;
-  height: 100%;
-  /*backdrop-filter: blur(0.2rem);*/
-`;
-
-const PopUpMainContainer = styled.div`
-  display: flex;
-  inset: 0;
-  margin: auto;
-  border-radius: 1rem;
-  height: 70%;
-  width: 30rem;
-  outline: 0.1rem solid #8e8e8e;
-  background: white;
-  box-shadow: 0 0 8rem #cdcdcd;
-`;
-
-const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 1rem;
-`;
-
-const InputGridContainer = styled.div`
-  display: grid;
-  height: 100%;
-  grid-template-rows: 1fr 10fr;
-`;
-
-const TitleInputContainer = styled.textarea`
-  color: #353535;
-  border: 0.1rem solid #e8e8e821;
-  border-radius: 1rem 1rem 0 0;
-  outline: 0;
-  padding: 0.7rem 1.2rem;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
   font-size: 1.2rem;
-  font-weight: 600;
-  width: 100%;
-  resize: none;
-  background: rgba(46, 46, 46, 0.12);
+  font-weight: 500;
 `;
-const DescriptionInputContainer = styled.textarea`
-  color: #353535;
-  border: 0.1rem solid #e8e8e821;
-  border-radius: 0 0 1rem 1rem;
-  outline: 0;
-  padding: 0.7rem 1.2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+
+const DescriptionInput = styled.textarea`
+  resize: none;
+  display: block;
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+`;
+
+const StyledButton = styled.button`
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const AddTaskButton = styled.div`
+  position: fixed;
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  bottom: 5%;
+  right: 5%;
+  padding: 1rem 3rem;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  /*border: 0.1rem solid #343a49;*/
+  background: #e6e6e6;
+  color: #00000055;
+  box-shadow: 0 0 0.5rem #00000044;
+
+  &:hover {
+    outline: 0.1rem solid #00000022;
+    color: #000000aa;
+  }
+`;
+
+const BtnClose = styled.div`
+  display: block;
+  scale: 80%;
+  z-index: 3;
+  align-content: end;
+  width: fit-content;
+  padding: 0.3rem 0.3rem 0 0.3rem;
+  margin: 0;
+  border-radius: 10rem;
+
+  &:hover {
+    cursor: pointer;
+    outline: 0.1rem solid #00000044;
+    color: white;
+    background: #f33c5c;
+  }
+`;
+
+const BlurContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
   height: 100%;
   width: 100%;
-  resize: none;
-  background: rgba(46, 46, 46, 0.12);
+  background: #00000022;
 `;
 
-/*const BtnAddTaskTest = styled.button``;
-const BtnDelTaskTest = styled.button``;*/
 const Home = () => {
-  const [titleState, setTitleState] = useState("");
-  const [descriptionState, setDescriptionState] = useState("");
-  const [taskList, setTaskList] = useState([]);
-  const [popUpState, setPopUpState] = useState();
+  const dispatch = useDispatch();
+  const title = useSelector((state) => state.taskData.title);
+  const description = useSelector((state) => state.taskData.description);
+  const taskListInfo = useSelector((state) => state.taskData.taskListInfo);
 
-  function closeTaskWindow() {
-    return setPopUpState(null);
+  function handleShowContainer() {
+    setShowMainContainer("fixed");
+    return showContainer === "none"
+      ? setShowContainer("flex")
+      : setShowContainer("none");
   }
 
-  function addTask(id, titleState, descriptionState) {
-    const newTask = {
-      id: id,
-      title: titleState,
-      description: descriptionState,
-    };
+  const handleAddTask = () => {
+    if (title && description) {
+      dispatch(addTask({ title, description }));
+      dispatch(setTitle(""));
+      dispatch(setDescription(""));
+      setShowContainer("none");
+    }
+  };
 
-    const updatedTaskList = [...taskList, newTask];
-    console.log(updatedTaskList);
-    return updatedTaskList;
+  function handleCloseTaskContainer() {
+    dispatch(setTitle(""));
+    dispatch(setDescription(""));
+    setShowMainContainer("absolute");
+    return showContainer === "none"
+      ? setShowContainer("flex")
+      : setShowContainer("none");
   }
+
+  const [showContainer, setShowContainer] = useState("none");
+  const [showMainContainer, setShowMainContainer] = useState("absolute");
 
   return (
-    <MainContainer>
-      {popUpState}
-      <BtnClosePopUp
-        onClick={() => {
-          return setPopUpState(
-            <PopUpBlurContainer>
-              <PopUpMainContainer>
-                <FormContainer>
-                  <InputGridContainer>
-                    <TitleInputContainer
-                      onChange={(event) => setTitleState(event.target.value)}
-                      placeholder="Title"
-                      type="text"
-                      id="title"
-                    />
+    <MainContainer style={{ position: `${showMainContainer}` }}>
+      <AddTaskButton type="button" onClick={() => handleShowContainer()}>
+        <Add style={{ scale: "110%" }} />
+      </AddTaskButton>
+      <BlurContainer style={{ display: `${showContainer}` }}>
+        <FormContainer style={{ display: `${showContainer}` }}>
+          <BtnClose type="button" onClick={() => handleCloseTaskContainer()}>
+            <CloseOutlined />
+          </BtnClose>
 
-                    <DescriptionInputContainer
-                      onChange={(event) =>
-                        setDescriptionState(event.target.value)
-                      }
-                      placeholder="Type something..."
-                      type={"text"}
-                      id="description"
-                    />
-                  </InputGridContainer>
-                  <div>
-                    <BtnClosePopUp
-                      onClick={() => {
-                        return closeTaskWindow();
-                      }}
-                    >
-                      Close
-                    </BtnClosePopUp>
-                    <BtnAddTaskTest
-                      onClick={() => {
-                        setTaskList([
-                          ...addTask("", titleState, descriptionState),
-                        ]);
-                      }}
-                    >
-                      Add
-                    </BtnAddTaskTest>
-                    {/*<BtnDelTaskTest>Delete</BtnDelTaskTest>*/}
-                  </div>
-                </FormContainer>
-              </PopUpMainContainer>
-            </PopUpBlurContainer>,
-          );
-        }}
-      >
-        Add Task
-      </BtnClosePopUp>
-
-      <TaskLayoutContainer>
-        <div>
-          <input
-            onChange={(event) => setTitleState(event.target.value)}
-            placeholder="title"
+          <TitleInput
             type="text"
+            id="title"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => dispatch(setTitle(e.target.value))}
           />
-          <input
-            onChange={(event) => setDescriptionState(event.target.value)}
-            placeholder="description"
+          <DescriptionInput
             type="text"
+            id="description"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => dispatch(setDescription(e.target.value))}
           />
-          <button
-            onClick={() => {
-              setTaskList([...addTask("", titleState, descriptionState)]);
-            }}
-          >
+          <StyledButton type="button" onClick={handleAddTask}>
             Add
-          </button>
-        </div>
+          </StyledButton>
+        </FormContainer>
+      </BlurContainer>
 
-        {/* Displaying task list */}
-        <div>
-          {taskList.map((task, index) => (
-            <div key={index}>
-              <div>{index}</div>
-              <div>Title: {task.title}</div>
-              <div>Description: {task.description}</div>
-            </div>
-          ))}
-        </div>
-      </TaskLayoutContainer>
+      {taskListInfo.length > 0 &&
+        taskListInfo.map((task, index) => {
+          return (
+            <>
+              <DisplayContainer key={index}>
+                <div key={index}>
+                  <h3>{task.title}</h3>
+                  <p>{task.description}</p>
+                </div>
+              </DisplayContainer>
+            </>
+          );
+        })}
     </MainContainer>
   );
 };

@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6b698d-4eec-409a-8359-5868b319df5b" name="Changes" comment="update logic">
-      <change afterPath="$PROJECT_DIR$/src/Redux/taskSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../express/express-test-one/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../express/express-test-one/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../react-ecommerce/src/Components/OrderPlaced.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../react-ecommerce/src/Components/OrderPlaced.jsx" afterDir="false" />
+    <list default="true" id="7b6b698d-4eec-409a-8359-5868b319df5b" name="Changes" comment="redesign react-taskapp-mt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/PopUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/PopUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/phoneApiSlice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +125,9 @@
       <workItem from="1716185892835" duration="824000" />
       <workItem from="1716192231583" duration="2212000" />
       <workItem from="1716227422410" duration="1747000" />
-      <workItem from="1716289809676" duration="25830000" />
+      <workItem from="1716289809676" duration="26673000" />
+      <workItem from="1716357959578" duration="23000" />
+      <workItem from="1716359169452" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="add react-taskapp-mt project">
       <option name="closed" value="true" />
@@ -169,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714735033470</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="redesign react-taskapp-mt">
+      <option name="closed" value="true" />
+      <created>1716326631459</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716326631459</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +179,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add react-taskapp-mt project" />
     <MESSAGE value="update logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="update logic" />
+    <MESSAGE value="redesign react-taskapp-mt" />
+    <option name="LAST_COMMIT_MESSAGE" value="redesign react-taskapp-mt" />
   </component>
 </project>

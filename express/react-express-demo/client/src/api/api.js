@@ -30,6 +30,7 @@ export const login = async (userInfo, dispatch) => {
 export const getUserInfoByParams = async (id) => {
     try {
         const res = await userRequest.get(`/api/user/getUserInfoByParams/${id}`);
+        console.log("heyyyyy", res.data)
         return res.data;
     } catch (error) {
         console.error("Get user info error:", error.response);

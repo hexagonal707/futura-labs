@@ -71,7 +71,11 @@ const ProfilePage = () => {
     const handleSave = async (event) => {
         try {
             const updatedUserInfo = await putUserInfoById(token.userId, userInfo);
-            setPreviewImage(URL.createObjectURL(event.target.files[0]));
+
+
+            !previewImage ? setPreviewImage(URL.createObjectURL(event.target.files[0])) : null
+
+
             setIsDisabled(true);
             await refetch()
             console.log("User Info Saved:", updatedUserInfo);

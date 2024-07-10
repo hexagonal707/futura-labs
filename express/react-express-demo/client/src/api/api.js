@@ -39,9 +39,11 @@ export const getUserInfoByParams = async (id) => {
 };
 
 // Update user info by ID
-export const putUserInfoById = async (userId, userInfo) => {
+export const putUserInfoByParams = async (userId, userInfo) => {
     try {
-        const res = await userRequest.put(`/api/user/putUserInfoByParams/${userId}`, userInfo);
+        const res = await userRequest.put(`/api/user/putUserInfoByParams/${userId}`, userInfo, {
+            headers: {"Content-Type": "multipart/form-data"},
+        });
         return res.data;
     } catch (error) {
         console.error("Update user info error:", error.response);

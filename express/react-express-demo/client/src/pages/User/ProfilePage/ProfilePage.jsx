@@ -79,15 +79,12 @@ const ProfilePage = () => {
 
     async function handleSave(event) {
         try {
-
-            // const formData = new FormData();
-            // Object.keys(userInfo).forEach(key => {
-            //     formData.append(key, userInfo[key]);
-            // });
             event.preventDefault()
             const updatedUserInfo = await putUserInfoByParams(token.userId, userInfo);
             setIsDisabled(true);
             await refetch();
+            setPreviewImage(null)
+
             console.log("User Info Saved:", updatedUserInfo);
         } catch (err) {
             console.error("Error saving user info:", err);

@@ -1,19 +1,18 @@
 import {useState} from "react";
-import {login} from "../../../api/api.js";
+import {userForgotPassword} from "../../../api/api.js";
 import {useDispatch} from "react-redux";
-import {Link, NavLink} from "react-router-dom";
 import styled from "styled-components";
 
-const LogInPage = () => {
+const ForgotPasswordPage = () => {
     const dispatch = useDispatch();
 
     const [credentials, setCredentials] = useState({
-        email: "", password: "",
+        email: "",
     });
 
     function handleSubmit(event) {
         event.preventDefault();
-        login(credentials, dispatch);
+        userForgotPassword(credentials)
     }
 
     function handleCredentials(event) {
@@ -24,10 +23,6 @@ const LogInPage = () => {
 
 
     return <>
-        <Header>
-            <Link to="/adminlogin">
-                <AdminButton>For Admins</AdminButton></Link>
-        </Header>
 
         <MainContainer>
 
@@ -38,42 +33,13 @@ const LogInPage = () => {
                     placeholder="Email"
                     onChange={handleCredentials}
                 />
-                <InputContainer
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleCredentials}
-                />
 
-                <NavLink to={"/forgotpassword"} style={{textDecoration: "none"}}>
-                    <ForgotPassword>Forgot password?</ForgotPassword>
-                </NavLink>
+                <LogInButton type="submit">Send OTP</LogInButton>
 
-                <LogInButton type="submit">Log in</LogInButton>
-                <div style={{color: "#dadada", fontSize: "0.8rem", fontWeight: 700}}>
-                    Want to create an account?
-                </div>
-                <Link to={"/signup"}>
-                    <SignUpButton>Sign up</SignUpButton>
-                </Link>
             </FormContainer>
         </MainContainer>
     </>
 };
-
-const ForgotPassword = styled.div`
-    font-size: 0.8rem;
-    color: white;
-    font-weight: bold;
-
-    &:hover {
-        text-decoration: underline;
-
-
-    }
-
-`;
-
 
 const MainContainer = styled.div`
     display: block;
@@ -82,37 +48,6 @@ const MainContainer = styled.div`
     align-content: center;
     user-select: none;
 `;
-
-const Header = styled.div`
-    position: relative;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    z-index: 5;
-    height: 4rem;
-    width: 100%;
-    outline: 0.1rem solid #3a3a3a;
-`
-
-const AdminButton = styled.button`
-    padding: 0.6rem 3rem;
-    margin: 1rem;
-    background: #ffa50015; /* Light orange background */
-    font-size: 0.8rem;
-    color: #ffa500; /* Orange text color */
-    border-radius: 0.4rem;
-    border: none;
-    outline: 0.1rem solid #ffa50077; /* Semi-transparent orange outline */
-    font-weight: 700;
-    transition: background 123ms ease-in-out;
-
-    &:hover {
-        background: #ffa50025; /* Slightly darker light orange background on hover */
-        color: #ffa500;
-        transition: 123ms ease-in-out;
-    }
-`;
-
 
 const FormContainer = styled.form`
     display: flex;
@@ -187,24 +122,5 @@ const LogInButton = styled.button`
         cursor: pointer;
     }
 `;
-const SignUpButton = styled.button`
-    padding: 0.6rem 5rem;
-    margin: 1rem;
-    background: #00ff7615;
-    font-size: 0.8rem;
-    color: #00ff76;
-    border-radius: 0.4rem;
-    border: none;
-    outline: 0.1rem solid #00ff7677;
-    font-weight: 700;
-    transition: background 123ms ease-in-out;
 
-    &:hover {
-        background: #00ff7625;
-        color: #00ff76;
-        transition: 123ms ease-in-out;
-        cursor: pointer;
-    }
-`;
-
-export default LogInPage;
+export default ForgotPasswordPage;

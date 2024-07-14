@@ -128,6 +128,26 @@ const filterData = async (req, res) => {
     }
 };
 
+//Mongo Queries
+const findAllUsers = async (req, res) => {
+    try {
+        const data = await userInfo.find();
+        res.send(data);
+    } catch (err) {
+
+    }
+}
+
+const findUserByAge = async (req, res) => {
+    try {
+        const data = await userInfo.find({age: 25});
+        res.send(data);
+    } catch (err) {
+
+    }
+}
+
+
 module.exports = {
     getUserInfoByParams,
     putUserInfoByParams: [upload.single('image'), putUserInfoByParams],
@@ -135,4 +155,6 @@ module.exports = {
     insertAllData,
     deleteAllData,
     filterData,
+    findAllUsers,
+    findUserByAge
 };

@@ -9,6 +9,7 @@ import AccountSettings from "./pages/User/AccountSettings/AccountSettings.jsx";
 import SettingsPage from "./pages/User/SettingsPage/SettingsPage.jsx";
 import AdminLogInPage from "./pages/Admin/AdminLogInPage/AdminLogInPage.jsx";
 import AdminHomePage from "./pages/Admin/AdminHomePage/AdminHomePage.jsx";
+import ForgotPasswordPage from "./pages/User/ForgotPasswordPage/ForgotPasswordPage.jsx";
 
 function App() {
     const userToken = useSelector((state) => state.userLoginSlice.accessToken);
@@ -29,6 +30,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path={loginStatus ? "/" : "/adminlogin"}
                element={loginStatus ? <HomePage/> : <AdminLogInPage/>}/>
+        <Route path="/forgotpassword" element={<ForgotPasswordPage/>}/>
         <Route
             path="/settings"
             element={loginStatus ? <SettingsPage/> : <LogInPage/>}

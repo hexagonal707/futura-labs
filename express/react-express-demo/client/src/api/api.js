@@ -27,16 +27,27 @@ export const login = async (userInfo, dispatch) => {
 };
 
 //Forgot password user
-export const userForgotPassword = async (userInfo) => {
+export const forgotPassword = async (userInfo) => {
   try {
     const res = await publicRequest.post(
-      `/api/user/auth/userforgotpassword`,
+      `/api/user/auth/forgotpassword`,
       userInfo,
     );
     console.log(res.data, "forgotPassword data");
     return res.data;
   } catch (error) {
     console.error("Forgot password error:", error.response);
+    throw error;
+  }
+};
+
+export const verifyOtp = async (userInfo) => {
+  try {
+    const res = await publicRequest.post("/api/user/auth/verifyotp", userInfo);
+    console.log(res.data, "otp verify check");
+    return res.data;
+  } catch (error) {
+    console.error("otp verification failed.", error.response);
   }
 };
 

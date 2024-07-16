@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const cloudinary = require("cloudinary").v2;
 const multer = require("multer");
 const nodemailer = require("nodemailer");
-const otpInfoSchema = require("../Model/otpSchema");
+const OtpInfoSchema = require("../Model/otpSchema");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -123,49 +123,69 @@ const login = async (req, res) => {
   }
 };
 
-const userForgotPassword = async (req, res) => {
+const forgotPassword = async (req, res) => {
   const email = req.body.email;
-  const otp = generateOTP();
-  const otpExpiration = new Date(Date.now() + 5 * 60 * 1000);
-
-  function generateOTP() {
+  const generateOTP = () => {
     return Math.floor(1000 + Math.random() * 9000);
-  }
-
-  const data = new otpInfoSchema({
-    email: email,
-    otp: otp,
-    otpExpiration: otpExpiration,
-  });
-
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.NODEMAILER_APP_EMAIL,
-      pass: process.env.NODEMAILER_APP_PASSWORD,
-    },
-  });
-
-  let mailOptions = {
-    from: process.env.NODEMAILER_APP_EMAIL,
-    to: email,
-    subject: "E-Commerce OTP Code",
-    text: `Your OTP code is ${otp}`,
   };
+  const existingUserEmail = await UserInfoSchema.findOne(
+    { email },
+    {},
+    { lean: true },
+  );
 
-  try {
-    await data.save();
-    let info = await transporter.sendMail(mailOptions);
-    console.log("Email sent: " + info.response);
-    console.log(res.send, "dsddddddd");
-    return otp;
-  } catch (error) {
-    console.log(error.response);
+  if (existingUserEmail) {
+    const otp = generateOTP();
+    const otpExpiration = new Date(Date.now() + 5 * 60 * 1000);
+
+    const data = new OtpInfoSchema({
+      email: email,
+      otp: otp,
+      otpExpiration: otpExpiration,
+    });
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.NODEMAILER_APP_EMAIL,
+        pass: process.env.NODEMAILER_APP_PASSWORD,
+      },
+    });
+
+    let mailOptions = {
+      from: process.env.NODEMAILER_APP_EMAIL,
+      to: email,
+      subject: "E-Commerce OTP Code",
+      text: `Your OTP code is ${otp}`,
+    };
+
+    try {
+      await data.save();
+      let info = await transporter.sendMail(mailOptions);
+      console.log("Email sent: " + info.response);
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: "Failed to send OTP, please try again" });
+    }
+  } else {
+    res.status(400).json({ error: "This email address doesn't exist." });
   }
+};
+
+const verifyOtp = async (req, res) => {
+  try {
+    const { otp } = req.body;
+    if (otp) {
+    } else {
+    }
+    console.log(otp);
+  } catch (e) {}
 };
 
 module.exports = {
   signup: [upload.single("image"), signup],
   login,
-  userForgotPassword,
+  forgotPassword,
+  verifyOtp,
 };

@@ -1,27 +1,13 @@
 import { useState } from "react";
-import { forgotPassword } from "../../../api/api.js";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
-const ForgotPasswordPage = () => {
+const VerifyCodePage = () => {
   const [credentials, setCredentials] = useState({
     email: "",
   });
-  const [otpState, setOtpState] = useState({ error: false });
 
-  const navigate = useNavigate();
-
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-
-    try {
-      if (await forgotPassword(credentials)) {
-        navigate("/verifycode");
-      }
-      setOtpState({ error: false });
-    } catch (err) {
-      setOtpState({ error: true });
-    }
   }
 
   function handleCredentials(event) {
@@ -35,16 +21,13 @@ const ForgotPasswordPage = () => {
       <MainContainer>
         <FormContainer onSubmit={handleSubmit}>
           <InputContainer
-            type="email"
-            name="email"
-            placeholder="Email"
+            type="number"
+            name="otp"
+            placeholder="OTP Code"
             onChange={handleCredentials}
           />
-          <div>{otpState.error ? <span>Email doesnt exist</span> : ""}</div>
 
-          <LogInButton type="submit">
-            <span>Send OTP</span>
-          </LogInButton>
+          <LogInButton type="submit">Verify Code</LogInButton>
         </FormContainer>
       </MainContainer>
     </>
@@ -132,5 +115,4 @@ const LogInButton = styled.button`
     cursor: pointer;
   }
 `;
-
-export default ForgotPasswordPage;
+export default VerifyCodePage;

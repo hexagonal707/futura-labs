@@ -1,27 +1,18 @@
 import { useState } from "react";
 import { forgotPassword } from "../../../api/api.js";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
-const ForgotPasswordPage = () => {
+const ChangePasswordPage = () => {
   const [credentials, setCredentials] = useState({
     email: "",
   });
-  const [otpState, setOtpState] = useState({ error: false });
+  const [otpState, setOtpState] = useState(false);
 
-  const navigate = useNavigate();
-
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-
-    try {
-      if (await forgotPassword(credentials)) {
-        navigate("/verifycode");
-      }
-      setOtpState({ error: false });
-    } catch (err) {
-      setOtpState({ error: true });
-    }
+    forgotPassword(credentials).then((otpState) => {
+      setOtpState(otpState.success);
+    });
   }
 
   function handleCredentials(event) {
@@ -34,17 +25,29 @@ const ForgotPasswordPage = () => {
     <>
       <MainContainer>
         <FormContainer onSubmit={handleSubmit}>
+          {/*<InputContainer*/}
+          {/*    style={{ display: !otpState ? "block" : "none" }}*/}
+          {/*    type="email"*/}
+          {/*    name="email"*/}
+          {/*    placeholder="Email"*/}
+          {/*    onChange={handleCredentials}*/}
+          {/*/>*/}
+
           <InputContainer
-            type="email"
-            name="email"
-            placeholder="Email"
+            type="password"
+            name="password"
+            placeholder="Password"
             onChange={handleCredentials}
           />
-          <div>{otpState.error ? <span>Email doesnt exist</span> : ""}</div>
 
-          <LogInButton type="submit">
-            <span>Send OTP</span>
-          </LogInButton>
+          <InputContainer
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm password"
+            onChange={handleCredentials}
+          />
+
+          <LogInButton type="submit">Change Password</LogInButton>
         </FormContainer>
       </MainContainer>
     </>
@@ -132,5 +135,4 @@ const LogInButton = styled.button`
     cursor: pointer;
   }
 `;
-
-export default ForgotPasswordPage;
+export default ChangePasswordPage;

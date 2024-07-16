@@ -2,13 +2,16 @@ const router = require("express").Router();
 const {
   signup,
   login,
-  userForgotPassword,
+  forgotPassword,
+  verifyOtp,
 } = require("../AppController/userAuthController");
 
 router.post("/signup", signup);
 
 router.post("/login", login);
 
-router.post("/userforgotpassword", userForgotPassword);
+router.post("/forgotpassword", forgotPassword);
+
+router.post("/verifyotp", verifyOtp);
 
 module.exports = router;

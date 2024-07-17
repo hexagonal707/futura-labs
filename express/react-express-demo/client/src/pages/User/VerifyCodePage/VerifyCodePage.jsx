@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const VerifyCodePage = () => {
   const [credentials, setCredentials] = useState({
-    email: "",
+    otp: "",
   });
 
   function handleSubmit(event) {

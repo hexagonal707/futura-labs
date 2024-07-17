@@ -5,6 +5,7 @@ const cloudinary = require("cloudinary").v2;
 const multer = require("multer");
 const nodemailer = require("nodemailer");
 const OtpInfoSchema = require("../Model/otpSchema");
+const userInfo = require("../Model/userSchema");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -125,23 +126,28 @@ const login = async (req, res) => {
 
 const forgotPassword = async (req, res) => {
   const email = req.body.email;
-  const generateOTP = () => {
-    return Math.floor(1000 + Math.random() * 9000);
-  };
-  const existingUserEmail = await UserInfoSchema.findOne(
-    { email },
-    {},
-    { lean: true },
-  );
 
-  if (existingUserEmail) {
+  const generateOTP = () => Math.floor(1000 + Math.random() * 9000);
+
+  try {
+    const existingUserEmail = await UserInfoSchema.findOne(
+      { email },
+      {},
+      { lean: true },
+    );
+    if (!existingUserEmail) {
+      return res
+        .status(400)
+        .json({ error: "This email address doesn't exist." });
+    }
+
     const otp = generateOTP();
     const otpExpiration = new Date(Date.now() + 5 * 60 * 1000);
+    const otpData = { email, otp, otpExpiration };
 
-    const data = new OtpInfoSchema({
-      email: email,
-      otp: otp,
-      otpExpiration: otpExpiration,
+    await OtpInfoSchema.findOneAndUpdate({ email }, otpData, {
+      upsert: true,
+      new: true,
     });
 
     let transporter = nodemailer.createTransport({
@@ -159,27 +165,19 @@ const forgotPassword = async (req, res) => {
       text: `Your OTP code is ${otp}`,
     };
 
-    try {
-      await data.save();
-      let info = await transporter.sendMail(mailOptions);
-      console.log("Email sent: " + info.response);
-      res.status(200).json({ success: true });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: "Failed to send OTP, please try again" });
-    }
-  } else {
-    res.status(400).json({ error: "This email address doesn't exist." });
+    await transporter.sendMail(mailOptions);
+    console.log("Email sent: " + mailOptions.response);
+
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Failed to send OTP, please try again" });
   }
 };
 
 const verifyOtp = async (req, res) => {
   try {
     const { otp } = req.body;
-    if (otp) {
-    } else {
-    }
-    console.log(otp);
   } catch (e) {}
 };
 

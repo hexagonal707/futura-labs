@@ -1,13 +1,26 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { verifyOtp } from "../../../api/api.js";
+import { useNavigate } from "react-router-dom";
+import { setOtpVerify } from "../../../redux/otpSlice.js";
 
 const VerifyCodePage = () => {
+  const navigate = useNavigate();
+
   const [credentials, setCredentials] = useState({
     otp: "",
   });
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const response = await verifyOtp(credentials);
+
+    console.log(response);
+
+    if (response?.success) {
+      setOtpVerify(true);
+      navigate("/changepassword");
+    }
   }
 
   function handleCredentials(event) {

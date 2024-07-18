@@ -1,38 +1,39 @@
 import { useState } from "react";
-import { forgotPassword } from "../../../api/api.js";
+
 import styled from "styled-components";
+import { changePassword } from "../../../api/api.js";
+import { useNavigate } from "react-router-dom";
+import { clearEmailState, setOtpVerify } from "../../../redux/otpSlice.js";
+import { useSelector } from "react-redux";
 
 const ChangePasswordPage = () => {
-  const [credentials, setCredentials] = useState({
-    email: "",
+  const navigate = useNavigate();
+  const email = useSelector((state) => state.otpSlice.email);
+  const [password, setPassword] = useState({
+    password: null,
   });
-  const [otpState, setOtpState] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    forgotPassword(credentials).then((otpState) => {
-      setOtpState(otpState.success);
-    });
+    const response = await changePassword(email, password);
+
+    if (response?.success) {
+      setOtpVerify(false);
+      clearEmailState();
+      navigate("/loginredirectpage");
+    }
   }
 
   function handleCredentials(event) {
     const { name, value } = event.target;
-    setCredentials({ ...credentials, [name]: value });
-    console.log(credentials);
+    setPassword({ ...password, [name]: value });
+    console.log(password);
   }
 
   return (
     <>
       <MainContainer>
         <FormContainer onSubmit={handleSubmit}>
-          {/*<InputContainer*/}
-          {/*    style={{ display: !otpState ? "block" : "none" }}*/}
-          {/*    type="email"*/}
-          {/*    name="email"*/}
-          {/*    placeholder="Email"*/}
-          {/*    onChange={handleCredentials}*/}
-          {/*/>*/}
-
           <InputContainer
             type="password"
             name="password"

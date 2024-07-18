@@ -16,6 +16,8 @@ import AdminLogInPage from "./pages/Admin/AdminLogInPage/AdminLogInPage.jsx";
 import AdminHomePage from "./pages/Admin/AdminHomePage/AdminHomePage.jsx";
 import ForgotPasswordPage from "./pages/User/ForgotPasswordPage/ForgotPasswordPage.jsx";
 import VerifyCodePage from "./pages/User/VerifyCodePage/VerifyCodePage.jsx";
+import ChangePasswordPage from "./pages/User/ChangePasswordPage/ChangePasswordPage.jsx";
+import LogInRedirectPage from "./pages/User/LogInRedirectPage/LogInRedirectPage.jsx";
 
 function App() {
   const userToken = useSelector((state) => state.userLoginSlice.accessToken);
@@ -51,6 +53,8 @@ function App() {
         />
         <Route path="/forgotpassword" element={<ForgotPasswordPage />} />
         <Route path="/verifycode" element={<VerifyCodePage />} />
+        <Route path="/changepassword" element={<ChangePasswordPage />} />
+        <Route path="/loginredirectPage" element={<LogInRedirectPage />} />
         <Route
           path="/settings"
           element={loginStatus ? <SettingsPage /> : <LogInPage />}

@@ -27,11 +27,11 @@ export const login = async (userInfo, dispatch) => {
 };
 
 //Forgot password user
-export const forgotPassword = async (userInfo) => {
+export const forgotPassword = async (email) => {
   try {
     const res = await publicRequest.post(
       `/api/user/auth/forgotpassword`,
-      userInfo,
+      email,
     );
     console.log(res.data, "forgotPassword data");
     return res.data;
@@ -41,13 +41,26 @@ export const forgotPassword = async (userInfo) => {
   }
 };
 
-export const verifyOtp = async (userInfo) => {
+export const verifyOtp = async (otp) => {
   try {
-    const res = await publicRequest.post("/api/user/auth/verifyotp", userInfo);
+    const res = await publicRequest.post("/api/user/auth/verifyotp", otp);
     console.log(res.data, "otp verify check");
     return res.data;
   } catch (error) {
     console.error("otp verification failed.", error.response);
+  }
+};
+
+export const changePassword = async (email, password) => {
+  try {
+    const res = await publicRequest.post("/api/user/auth/changePassword", {
+      email,
+      password,
+    });
+    console.log("changePassword clientSide check:", res);
+    return res.data;
+  } catch (err) {
+    console.log(err);
   }
 };
 

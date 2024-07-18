@@ -178,7 +178,50 @@ const forgotPassword = async (req, res) => {
 const verifyOtp = async (req, res) => {
   try {
     const { otp } = req.body;
-  } catch (e) {}
+
+    const existingOtp =
+      (await OtpInfoSchema.findOne({ otp }, {}, { lean: true })) &&
+      (await OtpInfoSchema.deleteOne({ otp }, {}));
+    if (existingOtp) {
+      res.status(200).json({ success: true });
+    } else {
+      res.status(201).json({ error: "Verification code does not match." });
+    }
+  } catch (e) {
+    res.error(e.response, "Verification error.");
+  }
+};
+
+const changePassword = async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password.password;
+
+    console.log(password, "password");
+    console.log(email, "5555");
+
+    const existingEmail = await UserInfoSchema.findOne(
+      email,
+      {},
+      { lean: true },
+    );
+
+    if (existingEmail) {
+      console.log("existing email for password change");
+    }
+
+    if (existingEmail) {
+      const updatePassword = await UserInfoSchema.findOneAndUpdate(
+        email,
+        { $set: { password: await argon.hash(password) } },
+        { new: true },
+      );
+      console.log(updatePassword, "password updated successfully");
+    }
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error(error.response);
+  }
 };
 
 module.exports = {
@@ -186,4 +229,5 @@ module.exports = {
   login,
   forgotPassword,
   verifyOtp,
+  changePassword,
 };

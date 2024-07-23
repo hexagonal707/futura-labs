@@ -1,33 +1,44 @@
 import { useState } from "react";
-
 import styled from "styled-components";
 import { changePassword } from "../../../api/api.js";
 import { useNavigate } from "react-router-dom";
 import { clearEmailState, setOtpVerify } from "../../../redux/otpSlice.js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ChangePasswordPage = () => {
   const navigate = useNavigate();
   const email = useSelector((state) => state.otpSlice.email);
-  const [password, setPassword] = useState({
-    password: null,
+  const dispatch = useDispatch();
+  const [passwords, setPasswords] = useState({
+    password: "",
+    confirmPassword: "",
   });
+  const [error, setError] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = await changePassword(email, password);
+    if (passwords.password !== passwords.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const response = await changePassword(email, {
+      password: passwords.password,
+    });
 
     if (response?.success) {
-      setOtpVerify(false);
-      clearEmailState();
+      dispatch(setOtpVerify(false));
+      dispatch(clearEmailState());
       navigate("/loginredirectpage");
+    } else {
+      setError("Failed to change password");
     }
   }
 
   function handleCredentials(event) {
     const { name, value } = event.target;
-    setPassword({ ...password, [name]: value });
-    console.log(password);
+    setPasswords({ ...passwords, [name]: value });
+    setError(""); // Clear error when user starts typing
   }
 
   return (
@@ -39,15 +50,16 @@ const ChangePasswordPage = () => {
             name="password"
             placeholder="Password"
             onChange={handleCredentials}
+            value={passwords.password}
           />
-
           <InputContainer
             type="password"
             name="confirmPassword"
             placeholder="Confirm password"
             onChange={handleCredentials}
+            value={passwords.confirmPassword}
           />
-
+          {error && <ErrorMessage>{error}</ErrorMessage>}
           <LogInButton type="submit">Change Password</LogInButton>
         </FormContainer>
       </MainContainer>
@@ -136,4 +148,10 @@ const LogInButton = styled.button`
     cursor: pointer;
   }
 `;
+
+const ErrorMessage = styled.div`
+  color: red;
+  margin-top: -0.5rem;
+`;
+
 export default ChangePasswordPage;
